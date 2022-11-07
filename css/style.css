@@ -39,8 +39,10 @@
   body {
     margin: 0;
     font-family: Helvetica;
+    background-color: black;
     /*background: url('') top center no-repeat;*/
     background-size: cover;
+    color: white;
   }
   
   .header {

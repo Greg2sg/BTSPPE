@@ -11,6 +11,7 @@
     flex: 1;
     -webkit-justify-content: space-around;
     justify-content: space-around;
+    list-style: none;
   }
   
   @media all and (min-width: 640px) {
@@ -57,9 +58,9 @@
     overflow: hidden;
   }
   
-  .nav {
+  /* .nav {
     list-style: none;
-  }
+  } */
   
   .nav li {
     margin: 12px 0 12px 28px;

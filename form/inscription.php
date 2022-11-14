@@ -36,16 +36,18 @@
         <input type="submit" name="envoyer">
     </form>
     <?php
+
+    include 'db.php';
     if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $prenom = $_POST['prenom'];
+        $nom = $_POST['nom'];
+        $email = $_POST['email'];
+        $rôle = $_POST['role'];
+        $responsable = $_POST['responsable'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
  
-    var_dump($email);
-    var_dump($password);
- 
-    $q = $db->prepare('INSERT INTO users (email, password) VALUES (:email, :password)');
-    $q->bindValue('email', $email);
-    $q->bindValue('password', $password);
+    $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$role','$prenom','$nom','$email','$password','$responsable')");
     $res = $q->execute();
  
     if ($res) {

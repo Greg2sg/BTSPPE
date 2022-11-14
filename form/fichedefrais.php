@@ -9,7 +9,7 @@
 <body>
     <img src="/asset/logo.png"><br />
 
-    <h1>Bienvenue chez cerveau</h1>
+    <h1>Bienvenue chez GSBs</h1>
     <h2>Saisie fiche de frais pour le mois .....</h2>
     <fieldset>
     <legend>Visiteur</legend>
@@ -26,6 +26,8 @@
         <fieldset>
             <legend>Frais Forfaitaires</legend>
             <form method="POST" action="fichedefrais.php" name="FraisForfaitaires">
+            <legend></legend>
+
             
 
 

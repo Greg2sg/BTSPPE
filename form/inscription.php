@@ -18,16 +18,21 @@
             <input type="text" name="nom" required>
         </div>
         <div>
-            <legend> email</legend>
+            <legend> Email</legend>
             <input type="email" name="email" required>
         </div>
         <div>
-            <legend> mot de passe</legend>
+            <legend> Mot de passe</legend>
             <input type="password" name="password" required>
         </div>
         <div>
-            <legend> rôle</legend>
-            <input type="number" name="role" min="1" max="3" required>
+            <legend> Rôle</legend>
+            <select name="pets" id="pet-select">
+                <option value="">--Please choose an option--</option>
+                <option value="dog">Employer</option>
+                <!-- <option value="cat">Admin</option> -->
+                <option value="hamster">Comptable</option>
+            </select>
         </div>
         <div>
             <legend> Responsable</legend>

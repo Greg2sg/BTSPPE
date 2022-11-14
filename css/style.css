@@ -39,11 +39,11 @@
     /* background-color: white; */
     /*background: url('') top center no-repeat;*/
     background-size: cover;
-    color: black;
+    color: white;
   }
   
   .header {
-    padding: 10px 210px;
+    padding: 10px 229px;
     margin: 0 auto;
     background-color: rgb(47, 43, 43);
     justify-content: space-between;
@@ -95,4 +95,12 @@
       min-width: 768px;
     }
   }
+
+  h2{
+    font-size: 32px;
+    position: relative;
+    top: 105px; left: 750px;
+
+  }
+
 

@@ -40,6 +40,10 @@ body {
   /*background: url('') top center no-repeat;*/
   background-size: cover;
   color: white;
+  background-image: url(../asset/img_hero.jpg);
+  background-position: 90% 0%;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 
 .header {
@@ -47,6 +51,7 @@ body {
   margin: 0 auto;
   background-color: rgb(47, 43, 43);
   justify-content: space-between;
+  background-position: 0px 20px;;
 } 
 
 .logo {

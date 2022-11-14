@@ -8,7 +8,7 @@
     <title>Inscription</title>
 </head>
 <body>
-    <form method="POST" action="method">
+    <form method="POST" action="inscription.php">
         <div>
             <legend> Prenom</legend>
             <input type="text" name="prenom" required>
@@ -19,15 +19,15 @@
         </div>
         <div>
             <legend> email</legend>
-            <input type="text" name="email" required>
+            <input type="email" name="email" required>
         </div>
         <div>
             <legend> mot de passe</legend>
-            <input type="text" name="password" required>
+            <input type="password" name="password" required>
         </div>
         <div>
             <legend> rôle</legend>
-            <input type="text" name="role" required>
+            <input type="number" name="role" min="1" max="3" required>
         </div>
         <div>
             <legend> Responsable</legend>
@@ -38,22 +38,23 @@
     <?php
 
     include 'db.php';
-    if (!empty($_POST['email']) && !empty($_POST['password'])) {
-        $prenom = $_POST['prenom'];
-        $nom = $_POST['nom'];
-        $email = $_POST['email'];
-        $rôle = $_POST['role'];
-        $responsable = $_POST['responsable'];
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    if(isset($_POST['envoyer'])){
+        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+            $prenom = $_POST['prenom'];
+            $nom = $_POST['nom'];
+            $email = $_POST['email'];
+            $rôle = $_POST['role'];
+            $responsable = $_POST['responsable'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
- 
-    $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$role','$prenom','$nom','$email','$password','$responsable')");
-    $res = $q->execute();
- 
-    if ($res) {
-        echo "Inscription réussie";
-    }
-}
+    
+        $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$rôle','$prenom','$nom','$email','$password','$responsable')");
+        $res = $q->execute();
+    
+        if ($res) {
+            echo "Inscription réussie";
+        }
+}}
     ?>
 </body>
 </html>

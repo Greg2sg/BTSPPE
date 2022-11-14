@@ -17,7 +17,7 @@
           <li><a href="#">A propos</a></li>
         </ul>
     </header>
-    <h1>Galaxy Swiss Bourdin</h1>
+    <h2>Galaxy Swiss Bourdin</h2>
 
 </body>
 </html>

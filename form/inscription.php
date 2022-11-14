@@ -37,8 +37,9 @@
     </form>
     <?php
 
-    include 'db.php';
+    
     if(isset($_POST['envoyer'])){
+        include 'db.php';
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $prenom = $_POST['prenom'];
             $nom = $_POST['nom'];

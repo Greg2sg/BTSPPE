@@ -28,7 +28,7 @@
         <div>
             <legend> Rôle</legend>
             <select name="pets" id="pet-select">
-                <option value="">--Please choose an option--</option>
+                <option value="">Choose an fucking option</option>
                 <option value="dog">Employer</option>
                 <!-- <option value="cat">Admin</option> -->
                 <option value="hamster">Comptable</option>

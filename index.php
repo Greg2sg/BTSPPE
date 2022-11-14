@@ -12,8 +12,8 @@
         <h1 class="logo">Logo</h1>
         <ul class="nav">
           <li><a href="form/">Fiche de frais</a></li>
-          <li><a href="">Inscription</a></li>
-          <li><a href="">Connexion</a></li>
+          <li><a href="form/inscription.php">Inscription</a></li>
+          <li><a href="form/conn.php">Connexion</a></li>
           <li><a href="#">A propos</a></li>
         </ul>
     </header>

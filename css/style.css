@@ -51,7 +51,7 @@
   }
   
   .logo {
-    background: transparent url('../asset/logo.jpg') center center no-repeat;
+    background: transparent url('../asset/logo.png') center center no-repeat;
     width: 195px;
     background-size: contain;
     text-indent: 100%;

@@ -27,7 +27,31 @@
         </div>
 
         <?php
-            
+    if (!empty($_POST['identifiant']) && !empty($_POST['password'])) {
+        $identifiant = $_POST['identifiant'];
+        $password = $_POST['password'];
+    
+        var_dump($identifiant);
+        var_dump($password);
+    
+        $q = $db->prepare('SELECT * FROM users WHERE identifiant = :identifiant');
+        $q->bindValue('identifiant', $identifiant);
+        $q->execute();
+        $res = $q->fetch(PDO::FETCH_ASSOC);
+        
+        var_dump($res);
+        
+        if ($res) {
+            $passwordHash = $res['password'];
+            if (password_verify($password, $passwordHash)) {
+                echo "Connexion réussie !";
+            } else {
+                echo "Identifiants invalides";
+            }
+        } else {
+            echo "Identifiants invalides";
+        }
+} 
         ?>
         
     </form>

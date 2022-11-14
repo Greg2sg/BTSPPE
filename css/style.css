@@ -6,15 +6,12 @@
     flex-direction: column;
   }
   
-  .header {
-    justify-content: space-between;
-  }
-  
   .nav {
     -webkit-flex: 1;
     flex: 1;
     -webkit-justify-content: space-around;
     justify-content: space-around;
+    list-style: none;
   }
   
   @media all and (min-width: 640px) {
@@ -55,7 +52,8 @@
     padding: 10px 229px;
     margin: 0 auto;
     background-color: rgb(47, 43, 43);
-  }
+    justify-content: space-between;
+  } 
   
   .logo {
     background: transparent url('../asset/logo.png') center center no-repeat;
@@ -66,9 +64,9 @@
     overflow: hidden;
   }
   
-  .nav {
+  /* .nav {
     list-style: none;
-  }
+  } */
   
   .nav li {
     margin: 12px 0 12px 28px;

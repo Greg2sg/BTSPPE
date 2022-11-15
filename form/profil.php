@@ -1,28 +1,42 @@
-<?php 
+<?php
 session_start();
+include 'conn.php';
+ 
+if(isset($_GET['id']) AND $_GET['id'] > 0) {
+   $sql = $bdd->prepare('SELECT * FROM user WHERE id = ?');
+   $sql->execute();
+   $userinfo = $sql->fetch();
+?>
 
-if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
-
- ?>
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-     <h1>Profil: <?php echo $_SESSION['nom'];echo $_SESSION['prenom']; ?></h1>
-     <a href="index.php">Page principale</a>
-     <h4>Ou</h4>
-     <a href="logout.php">Logout</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+   <body>
+      <div align="center">
+         <h2>Profil de <?php echo $userinfo['nom'];echo $userinfo['prenom']; ?></h2>
+         <br /><br />
+        Role = <?php echo $userinfo['role']; ?>
+         <br />
+        Email = <?php echo $userinfo['email']; ?>
+         <br />
+        Rôle = <?php echo $userinfo['role']; ?>
+         <br />
+         <?php
+         if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
+         ?>
+         <br />
+         <a href="editionprofil.php">Editer mon profil</a>
+         <a href="logout.php">Se déconnecter</a>
+         <?php
+         }
+         ?>
+      </div>
+   </body>
 </html>
-
-<?php 
-}else{
-     header("Location: conn.php");
-     exit();
+<?php   
 }
- ?>
+?>

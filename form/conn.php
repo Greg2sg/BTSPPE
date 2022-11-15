@@ -38,7 +38,8 @@ if(isset($_POST['envoyer'])) {
         $_SESSION['password'] = $password;
         $sql = $conn->prepare("SELECT * FROM user WHERE mail='$email' AND mdp='$password'");
         $sql->execute();
-            if($email === true && $password === true){
+        $result = exec($sql);
+            if($result === true){
                 $_SESSION['nom'] = $sql['nom'];
                 $_SESSION['prenom'] = $sql['nom'];
                 $_SESSION['nom'] = $sql['mail'];

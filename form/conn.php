@@ -49,11 +49,6 @@ if(isset($_POST['envoyer'])) {
    }
 }
 ?>
-
-
-
-    
-        ?>
         
     </form>
 </body>

@@ -8,11 +8,7 @@
     <title>Formulaire de connexion</title>
 </head>
 <body>
-    <?php
-        include 'db.php';
-        //require_once 'db.php'
-        //include_once 'db.php'
-    ?>
+
     <form method="post" action="conn.php">
         <div>
             <legend class="ok">email</legend>
@@ -27,35 +23,32 @@
         </div>
 
         <?php
-
-
+session_start();
+include 'db.php';
 
 if(isset($_POST['envoyer'])) {
-    session_start();
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $_SESSION['email'] = $email;
-        $_SESSION['password'] = $password;
-        $sql = $conn->prepare("SELECT * FROM user WHERE mail='$email' AND mdp='$password'");
-        $sql->execute();
-        $result = exec($sql);
-            if($result === true){
-                $_SESSION['nom'] = $sql['nom'];
-                $_SESSION['prenom'] = $sql['nom'];
-                $_SESSION['nom'] = $sql['mail'];
-                $_SESSION['prenom'] = $sql['responsable'];
-                $_SESSION['prenom'] = $sql['responsable'];
-                header("location:profil.php");
-                exit;
-            }
-            else{
-                echo "Aucun compte associer avec ces identifiants <br/> <a href='conn.php'>Se connecter</a>";
-                //header('location:conn.php');
-                exit;
-                }
-    
+   $email = htmlspecialchars($_POST['email']);
+   $password = sha1($_POST['password']);
+   if(!empty($email) AND !empty($password)) {
+      $sql = $conn->prepare("SELECT * FROM user WHERE mail = '$email' AND password = '$password'");
+      $sql->execute(array($email, $password));
+      $result = $sql->rowCount();
+      if($result == 1) {
+         $userinfo = $sql->fetch();
+         $_SESSION['id'] = $userinfo['id'];
+         $_SESSION['nom'] = $userinfo['pseudo'];
+         $_SESSION['email'] = $userinfo['email'];
+         $_SESSION['responsable'] = $userinfo['responsable'];
+         $_SESSION['role'] = $userinfo['role'];
+         header("Location: profil.php?id=".$_SESSION['id']);
+      } else {
+         $erreur = "Mauvais email ou mot de passe !";
+      }
+   } else {
+      $erreur = "Tous les champs doivent être complétés !";
+   }
 }
-
+?>
 
 
 

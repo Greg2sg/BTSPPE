@@ -52,7 +52,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 820px;
+    height: 830px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -152,7 +152,7 @@ button{
         <label for="email">Email</label>
         <input type="email" placeholder="" id="email">
 
-        <label for="username">Rôle</label>`
+        <label for="username">Rôle</label>
         <input type="text" placeholder="" id="role">
 
         <label for="username">Responsable</label>

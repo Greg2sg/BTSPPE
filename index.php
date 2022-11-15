@@ -18,11 +18,24 @@
         </ul>
     </header>
     <h2>Galaxy Swiss Bourdin</h2>
+    
+    
 
-    <form action="">
-    <button type="submit" formaction="/form/conn.php">ON</button>
+
+    
+    <form action="submit">
+    <button type="submit" name="btn" formaction="/form/conn.php">FICHE DE FRAIS</button>
     </form>
     
+    <form action="">
+    <button2 type="submit" formaction="/form/conn.php">FICHE</button2>
+    </form>
+
+    <form action="">
+    <button3 type="submit" formaction="/form/conn.php">FICHE</button3>
+    </form>
+    
+
 
 </body>
 </html>

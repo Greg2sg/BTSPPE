@@ -2,7 +2,7 @@
 session_start();
 include 'conn.php';
  
-if(isset($_GET['id']) AND $_GET['id'] > 0) {
+if(isset($_POST['id']) AND $_POST['id'] > 0) {
    $sql = $bdd->prepare('SELECT * FROM user WHERE id = ?');
    $sql->execute();
    $userinfo = $sql->fetch();

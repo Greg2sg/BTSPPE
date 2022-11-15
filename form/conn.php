@@ -19,7 +19,7 @@
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required>
 
-        <button name="envoyer">Vous connecter</button>
+        <button name="envoyer">Connexion</button>
     </form>
 
         <?php
@@ -42,7 +42,7 @@ if(isset($_POST['envoyer'])) {
          $_SESSION['role'] = $userinfo['role'];
          header("Location: profil.php?id=".$_SESSION['id']);
       } else {
-         echo "Mauvais email ou mot de passe !";
+         echo "<label>Mauvais email ou mot de passe !</label>";
       }
    } else {
       echo "Tous les champs doivent être complétés !";

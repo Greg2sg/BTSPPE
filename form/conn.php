@@ -30,13 +30,13 @@ if(isset($_POST['envoyer'])) {
    $email = htmlspecialchars($_POST['email']);
    $password = sha1($_POST['password']);
    if(!empty($email) AND !empty($password)) {
-      $sql = $conn->prepare("SELECT * FROM user WHERE mail = '$email' AND password = '$password'");
+      $sql = $conn->prepare("SELECT * FROM user WHERE mail = :email AND password = =password");
       $sql->execute(array($email, $password));
       $result = $sql->rowCount();
       if($result == 1) {
          $userinfo = $sql->fetch();
-         $_SESSION['id'] = $userinfo['id'];
-         $_SESSION['nom'] = $userinfo['pseudo'];
+         $_SESSION['id'] = $userinfo['id_user'];
+         $_SESSION['nom'] = $userinfo['nom'];
          $_SESSION['email'] = $userinfo['email'];
          $_SESSION['responsable'] = $userinfo['responsable'];
          $_SESSION['role'] = $userinfo['role'];

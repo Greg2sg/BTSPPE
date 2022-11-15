@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Design by foolishdeveloper.com -->
     <title>Inscription</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
     <style media="screen">
       *,
 *:before,
@@ -52,7 +50,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 950px;
+    height: 830px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -81,7 +79,7 @@ form h3{
 
 label{
     display: block;
-    margin-top: 30px;
+    margin-top: 12px;
     font-size: 16px;
     font-weight: 500;
 }
@@ -152,7 +150,7 @@ button{
         <label for="email">Email</label>
         <input type="email" placeholder="" id="email">
 
-        <label for="username">Rôle</label>`
+        <label for="username">Rôle</label>
         <input type="text" placeholder="" id="role">
 
         <label for="username">Responsable</label>
@@ -188,4 +186,3 @@ button{
     ?>
 </body>
 </html>
-

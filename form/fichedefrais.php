@@ -9,8 +9,9 @@
 <body>
     <img src="/asset/logo.png"><br />
 
-    <h1>Bienvenue chez cerveau</h1>
+    <h1>Bienvenue chez GSBs</h1>
     <h2>Saisie fiche de frais pour le mois .....</h2>
+    <h2>Saisie de frais pour la date du <input type="date" name="date" value="date"> au <input type="date" name="date" value="date"></h2>
     <fieldset>
     <legend>Visiteur</legend>
     <form method="POST" action="fichedefrais.php" name="Visiteur">
@@ -26,17 +27,52 @@
         <fieldset>
             <legend>Frais Forfaitaires</legend>
             <form method="POST" action="fichedefrais.php" name="FraisForfaitaires">
-            
+            <table>
+  <thead>
+    <tr>
+      <th scope="col">Libelle</th>
+      <th scope="col">Quantite</th>
+      <th scope="col">Montant Unitaire</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Nuitée</th>
+      <td><input type="text"></td>
+      <td>80.00€</td>
+      <td><input type="text"></td>
+    </tr>
+    <tr>
+      <th scope="row">Repas midi</th>
+      <td><input type="text"></td>
+      <td>29.00€</td>
+      <td><input type="text"></td>
+    </tr>
 
+    <!-- quelques lignes supprimées pour condenser le texte -->
 
-
-
-
-        </form>
-        </fieldset>
-
-
+    <tr>
+      <th scope="row">Kilométrage</th>
+      <td><input type="text"></td>
+      <td></td>
+      <td><input type="text"></td>
+    </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+      <th</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><input type="texte"></td>
+    </tr>
+  </tfoot>
+</table>
     </form>
+    </fieldset>
+    </form>
+    <input type="button" name="Retour" value="Retour"><input type="submit" name="Envoyer"><input type="button" name="Effacer" value="Effacer">
 
 </body>
 </html>

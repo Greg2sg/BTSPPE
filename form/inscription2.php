@@ -52,7 +52,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 950px;
+    height: 820px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -81,7 +81,7 @@ form h3{
 
 label{
     display: block;
-    margin-top: 30px;
+    margin-top: 12px;
     font-size: 16px;
     font-weight: 500;
 }

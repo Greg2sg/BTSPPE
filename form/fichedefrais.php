@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche de frais</title>
+    <title>Saisie frais forfaitaires</title>
 </head>
 <body>
     <img src="/asset/logo.png"><br />
 
-    <h1>Bienvenue chez GSBs</h1>
+    <h1>Bienvenue chez GSB</h1>
     <h2>Saisie fiche de frais pour le mois .....</h2>
     <h2>Saisie de frais pour la date du <input type="date" name="date" value="date"> au <input type="date" name="date" value="date"></h2>
     <fieldset>

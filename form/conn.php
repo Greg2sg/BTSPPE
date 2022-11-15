@@ -27,25 +27,38 @@
         </div>
 
         <?php
-    if (!empty($_POST['email']) && !empty($_POST['password'])) {
+
+
+
+if(isset($_POST['envoyer'])) {
+    session_start();
         $email = $_POST['email'];
         $password = $_POST['password'];
-    
-        $q = $db->prepare('SELECT email FROM user WHERE email = :email');
-        $q->execute();
-        $res = $q->fetch(PDO::FETCH_ASSOC);
- 
-        if ($res) {
-            $passwordHash = $res['password'];
-            if (password_verify($password, $passwordHash)) {
-                echo "Connexion réussie !";
-            } else {
-                echo "emails invalides";
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
+        $sql = $conn->prepare("SELECT * FROM user WHERE mail='$email' AND mdp='$password'");
+        $sql->execute();
+            if($email === true && $password === true){
+                $_SESSION['nom'] = $sql['nom'];
+                $_SESSION['prenom'] = $sql['nom'];
+                $_SESSION['nom'] = $sql['mail'];
+                $_SESSION['prenom'] = $sql['responsable'];
+                $_SESSION['prenom'] = $sql['responsable'];
+                header("location:profil.php");
+                exit;
             }
-        } else {
-            echo "emails invalides";
-        }
-} 
+            else{
+                echo "Aucun compte associer avec ces identifiants <br/> <a href='conn.php'>Se connecter</a>";
+                //header('location:conn.php');
+                exit;
+                }
+    
+}
+
+
+
+
+    
         ?>
         
     </form>

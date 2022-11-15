@@ -10,17 +10,17 @@
 <body>
 
     <form method="post" action="conn.php">
-        <div>
-            <legend class="ok">email</legend>
-            <input type="text" name="email" required/>
-        </div>
-        <div>
-            <legend>Mots de passe</legend>
-            <input type="password" name="password" required/>
-        </div>
-        <div>
-            <input type="submit" name="envoyer" />
-        </div>
+        <form>
+        <h3>Connexion</h3>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+
+        <button name="envoyer">Vous connecter</button>
+    </form>
 
         <?php
 session_start();
@@ -30,11 +30,11 @@ if(isset($_POST['envoyer'])) {
    $email = htmlspecialchars($_POST['email']);
    $password = sha1($_POST['password']);
    if(!empty($email) AND !empty($password)) {
-      $sql = $conn->prepare("SELECT * FROM user WHERE mail = :email AND password = =password");
-      $sql->execute(array($email, $password));
-      $result = $sql->rowCount();
+      $req = $conn->prepare("SELECT * FROM user WHERE mail = $email AND password = $password");
+      $req->execute(array($email, $password));
+      $result = $req->rowCount();
       if($result == 1) {
-         $userinfo = $sql->fetch();
+         $userinfo = $req->fetch();
          $_SESSION['id'] = $userinfo['id_user'];
          $_SESSION['nom'] = $userinfo['nom'];
          $_SESSION['email'] = $userinfo['email'];

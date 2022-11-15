@@ -140,28 +140,28 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
+    <form method="POST" action="inscription.php">
         <h3>Inscription</h3>
 
         <label for="username">Prenom</label>
-        <input type="text" placeholder="" id="prenom">
+        <input type="text" name="prenom" id="prenom" required>
         
         <label for="username">Nom</label>
-        <input type="text" placeholder="" id="nom">
+        <input type="text" name="nom"  id="nom" required>
 
         <label for="email">Email</label>
-        <input type="email" placeholder="" id="email">
+        <input type="email" name="email" id="email" required>
 
         <label for="username">Rôle</label>`
-        <input type="text" placeholder="" id="role">
+        <input type="text" name="role" id="role" required>
 
         <label for="username">Responsable</label>
-        <input type="text" placeholder="" id="responsable">
+        <input type="text" name="responsable" id="responsable" required>
 
         <label for="password">Password</label>
-        <input type="password" placeholder="" id="password">
+        <input type="password" name="password" id="password" required>
 
-        <button>Vous inscrire</button>
+        <button name="envoyer"> S'inscrire</button>
     </form>
 
     <?php
@@ -183,6 +183,7 @@ button{
     
         if ($res) {
             echo "Inscription réussie";
+            header("location:index.php");
         }
 }}
     ?>

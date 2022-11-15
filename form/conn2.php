@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
-    <title>Inscription</title>
+    <title>Connexion</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -52,7 +52,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 950px;
+    height: 480px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -141,51 +141,39 @@ button{
         <div class="shape"></div>
     </div>
     <form>
-        <h3>Inscription</h3>
-
-        <label for="username">Prenom</label>
-        <input type="text" placeholder="" id="prenom">
-        
-        <label for="username">Nom</label>
-        <input type="text" placeholder="" id="nom">
+        <h3>Connexion</h3>
 
         <label for="email">Email</label>
         <input type="email" placeholder="" id="email">
 
-        <label for="username">Rôle</label>`
-        <input type="text" placeholder="" id="role">
-
-        <label for="username">Responsable</label>
-        <input type="text" placeholder="" id="responsable">
-
         <label for="password">Password</label>
         <input type="password" placeholder="" id="password">
 
-        <button>Vous inscrire</button>
+        <button>Vous connecter</button>
     </form>
 
-    <?php
-
+        <?php
+    if (!empty($_POST['email']) && !empty($_POST['password'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
     
-    if(isset($_POST['envoyer'])){
-        include 'db.php';
-        if (!empty($_POST['email']) && !empty($_POST['password'])) {
-            $prenom = $_POST['prenom'];
-            $nom = $_POST['nom'];
-            $email = $_POST['email'];
-            $rôle = $_POST['role'];
-            $responsable = $_POST['responsable'];
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-    
-        $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$rôle','$prenom','$nom','$email','$password','$responsable')");
-        $res = $q->execute();
-    
+        $q = $db->prepare('SELECT email FROM user WHERE email = :email');
+        $q->execute();
+        $res = $q->fetch(PDO::FETCH_ASSOC);
+ 
         if ($res) {
-            echo "Inscription réussie";
+            $passwordHash = $res['password'];
+            if (password_verify($password, $passwordHash)) {
+                echo "Connexion réussie !";
+            } else {
+                echo "emails invalides";
+            }
+        } else {
+            echo "emails invalides";
         }
-}}
-    ?>
+} 
+        ?>
+        
+    </form>
 </body>
 </html>
-

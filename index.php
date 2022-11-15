@@ -19,5 +19,10 @@
     </header>
     <h2>Galaxy Swiss Bourdin</h2>
 
+    <form action="">
+    <button type="submit" formaction="/form/conn.php">ON</button>
+    </form>
+    
+
 </body>
 </html>

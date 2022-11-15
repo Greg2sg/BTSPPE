@@ -69,18 +69,10 @@
     </tr>
   </tfoot>
 </table>
-
-            
-
-
-
-
-
-        </form>
-        </fieldset>
-
-
     </form>
+    </fieldset>
+    </form>
+    <input type="button" name="Retour" value="Retour"><input type="submit" name="Envoyer"><input type="button" name="Effacer" value="Effacer">
 
 </body>
 </html>

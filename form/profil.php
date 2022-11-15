@@ -1,11 +1,13 @@
 <?php
 session_start();
-include 'conn.php';
+//include 'db.php';
  
-if(isset($_POST['id']) AND $_POST['id'] > 0) {
-   $sql = $bdd->prepare('SELECT * FROM user WHERE id = ?');
+if(isset($_GET['id']) AND $_GET['id'] > 0) {
+   /*$sql = $conn->prepare('SELECT * FROM user WHERE id = ');
    $sql->execute();
-   $userinfo = $sql->fetch();
+   $userinfo = $sql->fetch();*/
+   $userinfo = $_SESSION;
+
 ?>
 
 <html lang="en">

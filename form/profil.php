@@ -26,7 +26,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          Responsable = <?php echo $userinfo['responsable']; ?>
          <br />
          <?php
-         if(isset($_SESSION['id']) AND $userinfo['ID_User'] == $_SESSION['id']) {
+         if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
          ?>
          <br />
          <a href="../index2.php">page d'accueil</a>

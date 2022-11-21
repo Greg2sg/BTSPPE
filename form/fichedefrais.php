@@ -71,6 +71,7 @@
 
 
     <?php
+    include "db.php";
 if(isset($_POST['Envoyer'])) 
 {
     $date = $_POST['Date'];
@@ -82,9 +83,10 @@ if(isset($_POST['Envoyer']))
     $hebergement = $_POST['hebergement'];
     $repas = $_POST['repas'];
     $transport = $_POST['transport'];
+ 
+    $req = $conn->prepare("INSERT INTO `fichefrais`(`ID_FicheFrais`, `Date`, `Montant`) VALUES ('[value-1]','[value-2]','[value-3]')");
 
-
-
+    $req ->execute();
 
 
 

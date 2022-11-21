@@ -40,9 +40,6 @@ body {
   /*background: url('') top center no-repeat;*/
   background-size: cover;
   color: white;
-  background-image: url(../asset/img_hero.jpg);
-  background-position: 90% 0%;
-  background-repeat: no-repeat;
   overflow-x: hidden;
 }
 
@@ -103,12 +100,27 @@ body {
 
 h2{
   font-size: 32px;
-  position: relative;
-  top: 105px; left: 750px;
+  
 
 }
 
 img{
   height: 10px;
   width: 10px;
+}
+
+body{
+  background: url(../asset/img_hero.jpg) no-repeat fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  margin: 0px;
+  padding: 0px;
+  object-position: 50%;
+
+}
+
+div{
+  height: 100px;
+  border: 2px solid;
+  background-size: auto;
 }

@@ -3,6 +3,8 @@ session_start();
  
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
    $userinfo = $_SESSION;
+}else{
+    echo "rien ne marche";
 }
 ?>
 
@@ -21,7 +23,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
         <ul class="nav">
           <li><a href="form/fichedefrais.php">Fiche de frais</a></li>
           <!-- <li><a href="form/inscription.php">Inscription</a></li> -->
-          <li><a href="form/profil.php?id="><?php $userinfo['Prenom']?></a></li>
+          <li><a href="form/profil.php?id="><?php echo $userinfo['Prenom']?></a></li>
           <li><a href="form/propos.php">A propos</a></li>
         </ul>
     </header>

@@ -3,8 +3,6 @@ session_start();
  
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
    $userinfo = $_SESSION;
-}else{
-    echo "rien ne marche";
 }
 ?>
 

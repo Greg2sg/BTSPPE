@@ -21,6 +21,7 @@
 
         <button name="envoyer">Connexion</button>
     </form>
+</styel>
 
         <?php
 session_start();
@@ -28,22 +29,30 @@ include 'db.php';
 
 if(isset($_POST['envoyer'])) {
    $email = htmlspecialchars($_POST['email']);
-   $password = sha1($_POST['password']);
+   $password = password_hash($_POST['password']);
+
    if(!empty($email) AND !empty($password)) {
       $req = $conn->prepare("SELECT * FROM user WHERE mail = ? AND mdp = ?");
       $req->execute(array($email, $password));
       $result = $req->rowCount();
+
       if($result == 1) {
          $userinfo = $req->fetch();
+      } if (password_verify($password, $req)) {
+         // $userinfo = $req->fetch();
          $_SESSION['id'] = $userinfo['id_user'];
          $_SESSION['nom'] = $userinfo['nom'];
          $_SESSION['email'] = $userinfo['email'];
          $_SESSION['responsable'] = $userinfo['responsable'];
          $_SESSION['role'] = $userinfo['role'];
          header("Location: profil.php?id=".$_SESSION['id']);
+         // if (password_verify($password)) {
+         //    echo 
+
       } else {
          echo "<label>Mauvais email ou mot de passe !</label>";
       }
+
    } else {
       echo "Tous les champs doivent être complétés !";
    }

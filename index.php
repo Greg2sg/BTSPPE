@@ -19,6 +19,5 @@
     </header>
     <h2>Galaxy Swiss Bourdin</h2>
 
-
 </body>
 </html>

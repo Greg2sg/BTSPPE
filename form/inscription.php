@@ -136,6 +136,7 @@ button{
     </style>
 </head>
 <body>
+    
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
@@ -165,6 +166,7 @@ button{
     </form>
 
     <?php
+    
 
     
     if(isset($_POST['envoyer'])){

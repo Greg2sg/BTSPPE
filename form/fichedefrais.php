@@ -7,6 +7,7 @@
     <title>Saisie frais forfaitaires</title>
 </head>
 <body>
+  
     <img src="/asset/logo.png"><br />
 
     <h1>Bienvenue chez GSB</h1>

@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,15 +21,14 @@ session_start();
 
         <button name="envoyer">Connexion</button>
     </form>
-</styel>
 
         <?php
-
+session_start();
 include 'db.php';
 
 if(isset($_POST['envoyer'])) {
    $email = htmlspecialchars($_POST['email']);
-   $password = sha1($_POST['password']);
+   $password = $_POST('password');//sha1($_POST['password']);
    if(!empty($email) AND !empty($password)) {
       $req = $conn->prepare("SELECT * FROM user WHERE mail = ? AND mdp = ?");
       $req->execute(array($email, $password));
@@ -46,13 +41,9 @@ if(isset($_POST['envoyer'])) {
          $_SESSION['responsable'] = $userinfo['responsable'];
          $_SESSION['role'] = $userinfo['role'];
          header("Location: profil.php?id=".$_SESSION['id']);
-         // if (password_verify($password)) {
-         //    echo 
-
       } else {
          echo "<label>Mauvais email ou mot de passe !</label>";
       }
-
    } else {
       echo "Tous les champs doivent être complétés !";
    }

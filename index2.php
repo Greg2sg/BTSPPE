@@ -23,11 +23,12 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
         <ul class="nav">
           <li><a href="form/fichedefrais.php">Fiche de frais</a></li>
           <!-- <li><a href="form/inscription.php">Inscription</a></li> -->
-          <li><a href="form/profil.php?id=<?php $_SESSION['id'] ?>">Profil</a></li>
+          <!--<li><a href="<?php header("Location:form/profil.php?id=".$_SESSION['id']);?>">Profil</a></li>-->
           <li><a href="form/propos.php">A propos</a></li>
         </ul>
     </header>
     <h2>Galaxy Swiss Bourdin</h2>
 
 </body>
+
 </html>

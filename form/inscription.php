@@ -184,7 +184,7 @@ button{
 
         if ($res) {
             echo "Inscription réussie";
-            header("location:index2.php");
+            header("location:../index2.php");
         }
 }}
     ?>

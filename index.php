@@ -11,30 +11,13 @@
     <header class="header">
         <h1 class="logo">Logo</h1>
         <ul class="nav">
-          <li><a href="form/fichedefrais.php">Fiche de frais</a></li>
-          <li><a href="form/inscription.php">Inscription</a></li>
+          <!-- <li><a href="form/fichedefrais.php">Fiche de frais</a></li> -->
+          <!-- <li><a href="form/inscription.php">Inscription</a></li> -->
           <li><a href="form/conn.php">Connexion</a></li>
           <li><a href="form/propos.php">A propos</a></li>
         </ul>
     </header>
     <h2>Galaxy Swiss Bourdin</h2>
-    
-    
-
-
-    
-    <form action="submit">
-    <button type="submit" name="btn" formaction="/form/conn.php">FICHE DE FRAIS</button>
-    </form>
-    
-    <form action="">
-    <button2 type="submit" formaction="/form/conn.php">FICHE</button2>
-    </form>
-
-    <form action="">
-    <button3 type="submit" formaction="/form/conn.php">FICHE</button3>
-    </form>
-    
 
 
 </body>

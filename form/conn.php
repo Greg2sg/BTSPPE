@@ -37,16 +37,19 @@ if(isset($_POST['envoyer'])) {
       $r = "SELECT * FROM user WHERE mail = '$email' AND mdp = '$password'";
       $req = $conn->prepare($r);
       $req->execute();
-      //$result = $req->rowCount();
-      if($req/*$result == 1*/) {
+      if($req) {
          $userinfo = $req->fetch();
-            var_dump($userinfo);
-         $_SESSION['id'] = $userinfo['ID_User'];
-         $_SESSION['nom'] = $userinfo['Nom'];
-         $_SESSION['email'] = $userinfo['Mail'];
-         $_SESSION['responsable'] = $userinfo['Responsable'];
-         $_SESSION['role'] = $userinfo['Role'];
-         header("Location: profil.php?id=".$_SESSION['id']);
+         $passwordHash = $userinfo['password'];
+         if(password_verify($password, $passwordHash)){ 
+            $_SESSION['id'] = $userinfo['ID_User'];
+            $_SESSION['nom'] = $userinfo['Nom'];
+            $_SESSION['prenom'] = $userinfo['Prenom'];
+            $_SESSION['email'] = $userinfo['Mail'];
+            $_SESSION['responsable'] = $userinfo['Responsable'];
+            $_SESSION['role'] = $userinfo['Role'];
+            header("Location: profil.php?id=".$_SESSION['id']);
+          }
+         
       } else {
          echo "<label>Mauvais email ou mot de passe !</label>";
       }

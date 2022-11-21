@@ -25,34 +25,33 @@ session_start();
 
         <button name="envoyer">Connexion</button>
     </form>
+</styel>
 
         <?php
 
 include 'db.php';
 
 if(isset($_POST['envoyer'])) {
-   $email = $_POST['email'];
-   $password = $_POST['password'];
+   $email = htmlspecialchars($_POST['email']);
+   $password = sha1($_POST['password']);
    if(!empty($email) AND !empty($password)) {
       $r = "SELECT * FROM user WHERE mail = '$email' AND mdp = '$password'";
       $req = $conn->prepare($r);
       $req->execute();
-      if($req) {
+      //$result = $req->rowCount();
+      if($req/*$result == 1*/) {
          $userinfo = $req->fetch();
-         $passwordHash = $userinfo['password'];
-         if(password_verify($password, $passwordHash)){ 
-            $_SESSION['id'] = $userinfo['ID_User'];
-            $_SESSION['nom'] = $userinfo['Nom'];
-            $_SESSION['prenom'] = $userinfo['Prenom'];
-            $_SESSION['email'] = $userinfo['Mail'];
-            $_SESSION['responsable'] = $userinfo['Responsable'];
-            $_SESSION['role'] = $userinfo['Role'];
-            header("Location: profil.php?id=".$_SESSION['id']);
-          }
-         
+            var_dump($userinfo);
+         $_SESSION['id'] = $userinfo['ID_User'];
+         $_SESSION['nom'] = $userinfo['Nom'];
+         $_SESSION['email'] = $userinfo['Mail'];
+         $_SESSION['responsable'] = $userinfo['Responsable'];
+         $_SESSION['role'] = $userinfo['Role'];
+         header("Location: profil.php?id=".$_SESSION['id']);
       } else {
          echo "<label>Mauvais email ou mot de passe !</label>";
       }
+
    } else {
       echo "Tous les champs doivent être complétés !";
    }

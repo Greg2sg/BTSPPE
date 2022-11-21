@@ -32,7 +32,7 @@ session_start();
 include 'db.php';
 
 if(isset($_POST['envoyer'])) {
-   $email = htmlspecialchars($_POST['email']);
+   $email = $_POST['email'];
    $password =$_POST['password'];
    if(!empty($email) AND !empty($password)) {
       $r = "SELECT * FROM user WHERE mail = '$email' ";

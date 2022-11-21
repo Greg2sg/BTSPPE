@@ -17,7 +17,10 @@
           <li><a href="form/propos.php">A propos</a></li>
         </ul>
     </header>
+    
+    <div>
     <h2>Galaxy Swiss Bourdin</h2>
+    </div>
 
 </body>
 </html>

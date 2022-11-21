@@ -120,7 +120,20 @@ body{
 }
 
 div{
-  height: 100px;
-  border: 2px solid;
-  background-size: auto;
+  
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+  
+}
+
+div2{
+  height: 295px;
+  width: 705px;
+  display: flex;
+  justify-content: flex-end;
+  
 }

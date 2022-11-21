@@ -32,15 +32,15 @@ session_start();
 include 'db.php';
 
 if(isset($_POST['envoyer'])) {
-   $email = $_POST['email'];
-   $password =$_POST['password'];
+   $email = htmlspecialchars($_POST['email']);
+   $password =sha1($_POST['password']);
    if(!empty($email) AND !empty($password)) {
       $r = "SELECT * FROM user WHERE mail = '$email' AND mdp = '$password'";
       $req = $conn->prepare($r);
       $req->execute();
       $userinfo = $req->fetch();
       if($req) {
-         $passwordHash = $userinfo['password'];
+         $passwordHash = $userinfo['Password'];
          if(password_verify($password, $passwordHash)){
             $_SESSION['id'] = $userinfo['ID_User'];
             $_SESSION['nom'] = $userinfo['Nom'];

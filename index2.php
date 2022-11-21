@@ -1,3 +1,13 @@
+<?php
+session_start();
+ 
+if(isset($_GET['id']) AND $_GET['id'] > 0) {
+   $userinfo = $_SESSION;
+}else{
+    echo "rien ne marche";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +21,9 @@
     <header class="header">
         <h1 class="logo">Logo</h1>
         <ul class="nav">
-          <!-- <li><a href="form/fichedefrais.php">Fiche de frais</a></li> -->
+          <li><a href="form/fichedefrais.php">Fiche de frais</a></li>
           <!-- <li><a href="form/inscription.php">Inscription</a></li> -->
-          <li><a href="form/conn.php">Connexion</a></li>
+          <li><a href="form/profil.php?id="><?php echo $userinfo['Prenom']?></a></li>
           <li><a href="form/propos.php">A propos</a></li>
         </ul>
     </header>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,7 @@
     <title>Formulaire de connexion</title>
 </head>
 <body>
-
+    
     <form method="post" action="conn.php">
         <form>
         <h3>Connexion</h3>
@@ -21,29 +25,41 @@
 
         <button name="envoyer">Connexion</button>
     </form>
+</styel>
 
         <?php
-session_start();
+
 include 'db.php';
 
 if(isset($_POST['envoyer'])) {
    $email = htmlspecialchars($_POST['email']);
-   $password = sha1($_POST['password']);
+   $password =$_POST['password'];
    if(!empty($email) AND !empty($password)) {
-      $req = $conn->prepare("SELECT * FROM user WHERE mail = ? AND mdp = ?");
-      $req->execute(array($email, $password));
-      $result = $req->rowCount();
-      if($result == 1) {
-         $userinfo = $req->fetch();
-         $_SESSION['id'] = $userinfo['id_user'];
-         $_SESSION['nom'] = $userinfo['nom'];
-         $_SESSION['email'] = $userinfo['email'];
-         $_SESSION['responsable'] = $userinfo['responsable'];
-         $_SESSION['role'] = $userinfo['role'];
-         header("Location: profil.php?id=".$_SESSION['id']);
+      $r = "SELECT * FROM user WHERE mail = '$email' ";
+      $req = $conn->prepare($r);
+      $req->execute();
+      $userinfo = $req->fetch();
+      echo "<br/>";
+      var_dump($userinfo);
+      echo "<br/>";
+      if($userinfo) {
+         $passwordHash = $userinfo['Mdp'];
+         echo $password." ".$passwordHash;
+         if(password_verify($password, $passwordHash)){
+            $_SESSION['id'] = $userinfo['ID_User'];
+            $_SESSION['nom'] = $userinfo['Nom'];
+            $_SESSION['prenom'] = $userinfo['Prenom'];
+            $_SESSION['email'] = $userinfo['Mail'];
+            $_SESSION['responsable'] = $userinfo['Responsable'];
+            $_SESSION['role'] = $userinfo['Role'];
+            header("Location: ../index2.php?id=".$_SESSION['id']);
+         }else{
+             echo "<label>Mauvais email ou mot de passe !</label>";
+         }
       } else {
-         echo "<label>Mauvais email ou mot de passe !</label>";
+         echo "impossible de se connecter";
       }
+
    } else {
       echo "Tous les champs doivent être complétés !";
    }

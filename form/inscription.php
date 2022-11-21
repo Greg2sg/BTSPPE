@@ -136,6 +136,7 @@ button{
     </style>
 </head>
 <body>
+    
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
@@ -165,6 +166,7 @@ button{
     </form>
 
     <?php
+    
 
     
     if(isset($_POST['envoyer'])){
@@ -176,14 +178,13 @@ button{
             $rôle = $_POST['role'];
             $responsable = $_POST['responsable'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
     
         $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$rôle','$prenom','$nom','$email','$password','$responsable')");
         $res = $q->execute();
-    
+
         if ($res) {
             echo "Inscription réussie";
-            header("location:index.php");
+            header("location:../index2.php");
         }
 }}
     ?>

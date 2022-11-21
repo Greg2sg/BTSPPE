@@ -1,11 +1,7 @@
 <?php
 session_start();
-//include 'db.php';
  
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
-   /*$sql = $conn->prepare('SELECT * FROM user WHERE id = ');
-   $sql->execute();
-   $userinfo = $sql->fetch();*/
    $userinfo = $_SESSION;
 
 ?>
@@ -19,20 +15,24 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
     </head>
    <body>
       <div align="center">
-         <h2>Profil de <?php echo $userinfo['nom'];echo $userinfo['prenom']; ?></h2>
-         <br /><br />
-        Role = <?php echo $userinfo['role']; ?>
+         <h2><?php echo $userinfo['nom']?> <?php echo $userinfo['prenom']; ?></h2>
+         <br /><br/>
+         Nom/Prenom = <?php echo $userinfo['nom']; ?> <?php echo $userinfo['prenom']; ?>
          <br />
-        Email = <?php echo $userinfo['email']; ?>
+         Email = <?php echo $userinfo['email']; ?>
          <br />
-        Rôle = <?php echo $userinfo['role']; ?>
+         Rôle = <?php echo $userinfo['role']; ?>
+         <br />
+         Responsable = <?php echo $userinfo['responsable']; ?>
          <br />
          <?php
          if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
          ?>
          <br />
+         <a href="../index.php">page d'accueil</a>
          <a href="editionprofil.php">Editer mon profil</a>
          <a href="logout.php">Se déconnecter</a>
+         
          <?php
          }
          ?>

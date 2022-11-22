@@ -57,9 +57,7 @@
             </tfoot>
           </table>
     </fieldset>
-    <input type="button" name="Retour" value="Retour">
     <input type="submit" name="Envoyer">
-    <input type="button" name="Effacer" value="Effacer">
     </form>
 
 <?php

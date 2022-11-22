@@ -37,21 +37,21 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">Hébergement</th>
+                <th >Hébergement:</th>
                 <td><input type="number" name="hebergement">Euro</td>
               </tr>
               <tr>
-                <th scope="row">Repas</th>
+                <th >Repas:</th>
                 <td><input type="number" name="repas">Euro</td>
               </tr>
               <tr>
-                <th scope="row">Transport</th>
+                <th >Transport:</th>
                 <td><input type="number" name="transport">Euro</td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
-                <th>Prix Total</th>
+                <th>Prix Total:</th>
                 <td><input type="texte" name="prixtotal">Euro</td>
               </tr>
             </tfoot>
@@ -77,8 +77,15 @@ if(isset($_POST['Envoyer'])) {
     $transport = $_POST['transport'];
     $prixtotal = $_POST['prixtotal'];
 
-    $req = $conn->prepare("INSERT INTO `fichefrais`(`ID_FicheFrais`, `nom`, `prénom`, `poste`, `mois`, `Date`, `hebergement`, `repas`, `transport`, `prix total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
-    $req ->execute();
+    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prénom`, `poste`, `mois`, `Date`, `hebergement`, `repas`, `transport`, `prix total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
+    $res = $req ->execute();
+
+    if($res){
+      echo "envoie réussi";
+    }else{
+      echo "rien ne marche";
+    }
+
 }
 
 ?>

@@ -75,16 +75,17 @@
 if(isset($_POST['Envoyer'])) 
 {
     $date = $_POST['Date'];
-    $nom = $_POST['Nom'];
-    $prenom = $_POST['Prenom'];
-    $poste =$_POST['Poste'];
-    $jour = $_POST['Jour'];
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prénom'];
+    $poste =$_POST['poste'];
+    $mois = $_POST['mois'];
 
     $hebergement = $_POST['hebergement'];
     $repas = $_POST['repas'];
     $transport = $_POST['transport'];
+    $prixtotal = $_POST['prix total'];
  
-    $req = $conn->prepare("INSERT INTO `fichefrais`(`ID_FicheFrais`, `Date`, `Montant`) VALUES ('[value-1]','[value-2]','[value-3]')");
+    $req = $conn->prepare("INSERT INTO `fichefrais`(`ID_FicheFrais`, `nom`, `prénom`, `poste`, `mois`, `Date`, `hebergement`, `repas`, `transport`, `prix total`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]')");
 
     $req ->execute();
 

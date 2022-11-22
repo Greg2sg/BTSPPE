@@ -13,16 +13,16 @@
       <legend>Visiteur</legend>
     <form method="POST" action="fichedefrais.php" name="Visiteur">
       <h2>Saisie fiche de frais pour le mois <input type="number" name="mois" min="1" max="12"></h2>
-        <legend>Nom</legend>
+        <legend>Nom:</legend>
         <input type="text" name="nom" required>
 
-        <legend>Prénom</legend>
+        <legend>Prénom:</legend>
         <input type="text" name="prénom" required>
 
-        <legend>Poste</legend>
+        <legend>Poste:</legend>
         <input type="text" name="poste" required>
 
-        <legend>Date</legend>
+        <legend>Date:</legend>
         <input type="date" name="date" required>
      
     </fieldset>

@@ -7,64 +7,57 @@
     <title>Saisie frais forfaitaires</title>
 </head>
 <body>
-  
     <img src="/asset/logo.png"><br />
-
-    <h1>Bienvenue chez GSB</h1>
-    <h2>Saisie fiche de frais pour le mois <input type="number" name="date" min="1" max="12"></h2>
+      <h1>Bienvenue chez GSB</h1>
     <fieldset>
-    <legend>Visiteur</legend>
+      <legend>Visiteur</legend>
     <form method="POST" action="fichedefrais.php" name="Visiteur">
-        <legend>Nom</legend>
-        <input type="text" name="Nom" required>
-        <legend>Prénom</legend>
-        <input type="text" name="Prénom" required>
-        <legend>Poste</legend>
-        <input type="text" name="Poste" required>
-        <legend>Date</legend>
-        <input type="date" name="Jour" required>
+      <h2>Saisie fiche de frais pour le mois <input type="number" name="mois" min="1" max="12"></h2>
+        <legend>Nom:</legend>
+        <input type="text" name="nom" required>
+
+        <legend>Prénom:</legend>
+        <input type="text" name="prénom" required>
+
+        <legend>Poste:</legend>
+        <input type="text" name="poste" required>
+
+        <legend>Date:</legend>
+        <input type="date" name="date" required>
      
     </fieldset>
-        <fieldset>
-            <legend>Frais Forfaitaires</legend>
-            <table>
-  <thead>
-    <tr>
-      <th scope="col">Libelle</th>
-      <th scope="col">Prix</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Hébergement</th>
-      <td><input type="text" name="hebergement"></td>
-      
-    </tr>
-    <tr>
-      <th scope="row">Repas</th>
-      <td><input type="text" name="repas"></td>
-      
-      
-    </tr>
-
-    
-
-    <tr>
-      <th scope="row">Transport</th>
-      <td><input type="text" name="transport"></td>
-
-    </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-      <th</th>
-      <td></td>
-      <td><input type="texte"></td>
-    </tr>
-  </tfoot>
-</table>
+    <fieldset>
+        <legend>Frais Forfaitaires</legend>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Libelle</th>
+                <th scope="col">Prix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th >Hébergement:</th>
+                <td><input type="number" name="hebergement">Euro</td>
+              </tr>
+              <tr>
+                <th >Repas:</th>
+                <td><input type="number" name="repas">Euro</td>
+              </tr>
+              <tr>
+                <th >Transport:</th>
+                <td><input type="number" name="transport">Euro</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Prix Total:</th>
+                <td><input type="texte" name="prixtotal">Euro</td>
+              </tr>
+            </tfoot>
+          </table>
     </fieldset>
-    <input type="button" name="Retour" value="Retour"><input type="submit" name="Envoyer"><input type="button" name="Effacer" value="Effacer">
+    <input type="submit" name="Envoyer">
     </form>
     
 
@@ -75,27 +68,26 @@
 if(isset($_POST['Envoyer'])) 
 {
     $date = $_POST['Date'];
-    $nom = $_POST['Nom'];
-    $prenom = $_POST['Prenom'];
-    $poste =$_POST['Poste'];
-    $jour = $_POST['Jour'];
-
+    $nom = $_POST['nom'];
+    $prénom = $_POST['prénom'];
+    $poste =$_POST['poste'];
+    $mois = $_POST['mois'];
     $hebergement = $_POST['hebergement'];
     $repas = $_POST['repas'];
     $transport = $_POST['transport'];
- 
-    $req = $conn->prepare("INSERT INTO `fichefrais`(`ID_FicheFrais`, `Date`, `Montant`) VALUES ('[value-1]','[value-2]','[value-3]')");
+    $prixtotal = $_POST['prixtotal'];
 
-    $req ->execute();
+    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prénom`, `poste`, `mois`, `Date`, `hebergement`, `repas`, `transport`, `prix total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
+    $res = $req ->execute();
 
+    if($res){
+      echo "envoie réussi";
+    }else{
+      echo "rien ne marche";
+    }
 
-
-
-
-  
-
-  
 }
+
 ?>
 </body>
 </html>

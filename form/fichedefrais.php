@@ -74,9 +74,9 @@
     include "db.php";
 if(isset($_POST['Envoyer'])) 
 {
-    $date = $_POST['Date'];
+    $Date = $_POST['Date'];
     $nom = $_POST['nom'];
-    $prenom = $_POST['prénom'];
+    $prénom = $_POST['prénom'];
     $poste =$_POST['poste'];
     $mois = $_POST['mois'];
 

@@ -15,6 +15,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
         <title>Document</title>
     </head>
    <body>
+   <div class="global">
       <div align="center" class="wrapper">
          <h2><?php echo $userinfo['nom']?> <?php echo $userinfo['prenom']; ?></h2>
          <div class="img-area">
@@ -44,6 +45,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          <?php
          }
          ?>
+      </div>
       </div>
    </body>
 </html>

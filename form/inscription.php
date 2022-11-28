@@ -165,7 +165,7 @@ button{
         <button name="envoyer"> S'inscrire</button>
     </form>
 
-    <?php
+    <?php 
     
 
     

@@ -175,16 +175,35 @@ button{
             $prenom = $_POST['prenom'];
             $nom = $_POST['nom'];
             $email = $_POST['email'];
-            $rôle = $_POST['role'];
+            $role = $_POST['role'];
             $responsable = $_POST['responsable'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    
-        $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$rôle','$prenom','$nom','$email','$password','$responsable')");
+            var_dump($_POST);
+    /*
+        $requete = "INSERT INTO user ('Role', 'Prenom', 'Nom', 'Mail', 'Mdp', 'Responsable') VALUES (?,?,?,?,?,?)";
+        echo "<br/><br/><span style='color: red;'>";
+        var_dump($requete);
+        echo "</span>";
+        $q = $conn->prepare ($requete);
+        $res = $q->execute([$role, $prenom, $nom, $email, $password, $responsable]);
+        // $res = $conn->exec($requete);*/
+        
+        $requete = "INSERT INTO user (Role, Prenom, Nom, Mail, Mdp, Responsable) VALUES ($prenom, $nom, $email, $role, $password, $responsable)";
+        $q = $conn->prepare ($requete);
         $res = $q->execute();
+
 
         if ($res) {
             echo "Inscription réussie";
             header("location:../index.php");
+        } else {
+            /* $requete = "SELECT * FROM user";
+            $q = $conn->prepare ($requete);
+            $res = $q->execute();
+            $hhh = $q->fetch();
+            var_dump($hhh); */
+            
+            echo "ne marche pas";
         }
 }}
     ?>

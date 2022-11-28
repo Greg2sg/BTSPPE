@@ -17,7 +17,7 @@
         <input type="text" name="nom" required>
 
         <legend>Prénom:</legend>
-        <input type="text" name="prénom" required>
+        <input type="text" name="prenom" required>
 
         <legend>Poste:</legend>
         <input type="text" name="poste" required>
@@ -67,9 +67,9 @@
     include "db.php";
 if(isset($_POST['Envoyer'])) 
 {
-    $date = $_POST['Date'];
+    $date = $_POST['date'];
     $nom = $_POST['nom'];
-    $prénom = $_POST['prénom'];
+    $prenom = $_POST['prenom'];
     $poste =$_POST['poste'];
     $mois = $_POST['mois'];
     $hebergement = $_POST['hebergement'];
@@ -77,7 +77,7 @@ if(isset($_POST['Envoyer']))
     $transport = $_POST['transport'];
     $prixtotal = $_POST['prixtotal'];
 
-    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prénom`, `poste`, `mois`, `Date`, `hebergement`, `repas`, `transport`, `prix total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
+    $req = $conn->prepare("INSERT INTO fichefrais ( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `prix total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
     $res = $req ->execute();
 
     if($res){

@@ -64,8 +64,7 @@ if(isset($_POST['envoyer'])) {
       echo "Tous les champs doivent être complétés !";
    }
 }
-?>
-        
+?>    
     </form>
 </body>
 </html>

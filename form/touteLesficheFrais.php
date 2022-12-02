@@ -15,9 +15,7 @@
 <?php
 include "db.php";
 
-$req = $conn->prepare("SELECT ff.date,ff.repas,ff.transport,ff.hebergement,ff.prix_total
-        FROM recap r
-        INNER JOIN fichefrais ff ON r.ID_FicheFrais=ff.ID_FicheFrais");
+$req = $conn->prepare("SELECT * FROM fichefrais");
 
 $req->execute();
 echo "  

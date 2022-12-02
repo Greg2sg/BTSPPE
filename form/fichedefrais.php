@@ -52,7 +52,7 @@
             <tfoot>
               <tr>
                 <th>Prix Total:</th>
-                <td><input type="texte" name="prixtotal">Euro</td>
+                <td><input type="texte" name="prix_total">Euro</td>
               </tr>
             </tfoot>
           </table>
@@ -75,9 +75,9 @@ if(isset($_POST['Envoyer']))
     $hebergement = $_POST['hebergement'];
     $repas = $_POST['repas'];
     $transport = $_POST['transport'];
-    $prixtotal = $_POST['prixtotal'];
+    $prixtotal = $_POST['prix_total'];
 
-    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `prix total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
+    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `prix_total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
     $res = $req ->execute();
 
     if($res){

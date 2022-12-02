@@ -32,6 +32,7 @@ echo "
             <th>Hebergement</th> 
             <th>Autres</th> 
             <th>Sous-total</th> 
+            <th>Etat</th> 
             </tr>
     </thead>";
 

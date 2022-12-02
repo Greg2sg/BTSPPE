@@ -29,7 +29,8 @@ echo "
             <th>Repas </th> 
             <th>Hebergement</th> 
             <th>Autres</th> 
-            <th>Sous-total</th> 
+            <th>Sous-total</th>
+            <th>Etat</th> 
             </tr>
     </thead>";
 
@@ -44,6 +45,7 @@ while($donnee = $req->fetch()){
                             <td>".$donnee['hebergement']."</td>
                             <td>".$donnee['']."</td>
                             <td>".$donnee['prix_total']."</td>
+                            <td>".$donnee['']."</td>
                         </tr>
                         <br/>
                     </tbody>";

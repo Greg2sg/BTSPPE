@@ -64,9 +64,14 @@
 
 
     <?php
+    //Connexion à la base de donnée
     include "db.php";
+
+
 if(isset($_POST['Envoyer'])) 
 {
+
+  //Déclaration des variables
     $date = $_POST['date'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -77,6 +82,7 @@ if(isset($_POST['Envoyer']))
     $transport = $_POST['transport'];
     $prixtotal = $_POST['prix_total'];
 
+    //Insérer les données dans la base de données
     $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `prix_total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
     $res = $req ->execute();
 

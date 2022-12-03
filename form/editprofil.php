@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +44,11 @@ session_start();
     </form>
 
 <?php
+
+//Effectuer le code après avoir appuyé sur 'Envoyer'
 if(isset($_POST['editer'])){
+
+    //Déclaration des variables
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
@@ -53,6 +56,8 @@ if(isset($_POST['editer'])){
     $poste = $_POST['poste'];
     $role = $_POST['role'];
     $responsable = $_POST['responsable'];
+
+    //Update des donnée dans le profil
     $sql = "UPDATE user SET Role = $role ,Prenom = $prenom ,Nom =$nom ,Mail = $email ,Mdp = $password ,Responsable = $responsable ,Poste = $poste";
     $req= $conn->prepare($sql);
     $req->execute();

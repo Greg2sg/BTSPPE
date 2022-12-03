@@ -17,7 +17,7 @@
         <input type="text" name="nom" required>
 
         <legend>Prénom:</legend>
-        <input type="text" name="prénom" required>
+        <input type="text" name="prenom" required>
 
         <legend>Poste:</legend>
         <input type="text" name="poste" required>
@@ -52,7 +52,7 @@
             <tfoot>
               <tr>
                 <th>Prix Total:</th>
-                <td><input type="texte" name="prixtotal">Euro</td>
+                <td><input type="texte" name="prix_total">Euro</td>
               </tr>
             </tfoot>
           </table>
@@ -67,17 +67,17 @@
     include "db.php";
 if(isset($_POST['Envoyer'])) 
 {
-    $date = $_POST['Date'];
+    $date = $_POST['date'];
     $nom = $_POST['nom'];
-    $prénom = $_POST['prénom'];
+    $prenom = $_POST['prenom'];
     $poste =$_POST['poste'];
     $mois = $_POST['mois'];
     $hebergement = $_POST['hebergement'];
     $repas = $_POST['repas'];
     $transport = $_POST['transport'];
-    $prixtotal = $_POST['prixtotal'];
+    $prixtotal = $_POST['prix_total'];
 
-    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prénom`, `poste`, `mois`, `Date`, `hebergement`, `repas`, `transport`, `prix total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
+    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `prix_total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
     $res = $req ->execute();
 
     if($res){

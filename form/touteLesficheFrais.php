@@ -13,27 +13,29 @@
 </style>
 <body>
 <?php
+//Connexion à la base de donnée
 include "db.php";
 
+//Récupérer les donnée de la table fiche frais
 $req = $conn->prepare("SELECT * FROM fichefrais");
-
 $req->execute();
-echo "  
-    <table>
-        <thead>
-            <tr>
-            <th>date</th>  
-            <th>Poste</th> 
-            <th>Deplacement:KM parcourus</th>
-            <th>Deplacement: indemnité KM</th> 
-            <th>Repas </th> 
-            <th>Hebergement</th> 
-            <th>Autres</th> 
-            <th>Sous-total</th>
-            <th>Etat</th> 
-            </tr>
-    </thead>";
+            echo "  
+                <table>
+                    <thead>
+                        <tr>
+                        <th>date</th>  
+                        <th>Poste</th> 
+                        <th>Deplacement:KM parcourus</th>
+                        <th>Deplacement: indemnité KM</th> 
+                        <th>Repas </th> 
+                        <th>Hebergement</th> 
+                        <th>Autres</th> 
+                        <th>Sous-total</th>
+                        <th>Etat</th> 
+                        </tr>
+                    </thead>";
 
+//
 while($donnee = $req->fetch()){
             echo "  <tbody>
                         <tr>
@@ -50,7 +52,6 @@ while($donnee = $req->fetch()){
                         <br/>
                     </tbody>";
 }
-
 ?>
 </body>
 </html>

@@ -24,7 +24,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
   </div>
 </div>
          
-         <!-- <div class="name">Nom/Prenom = <?php echo $userinfo['nom']; ?> <?php echo $userinfo['prenom']; ?></div> -->
+         <div class="name">Nom/Prenom = <?php echo $userinfo['nom']; ?> <?php echo $userinfo['prenom']; ?></div> -->
          
          <p><?php echo $userinfo['email']; ?></p>
          

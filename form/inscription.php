@@ -166,12 +166,17 @@ button{
     </form>
 
     <?php 
-    
+
 
     
     if(isset($_POST['envoyer'])){
+        //Connexion à la base de donnée 
         include 'db.php';
+
+        //On verifie si tout les champs sont remplis
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
+
+            //Declarations de variables
             $prenom = $_POST['prenom'];
             $nom = $_POST['nom'];
             $email = $_POST['email'];
@@ -179,20 +184,15 @@ button{
             $responsable = $_POST['responsable'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     
+        //Inserer des données dans la base de donnée
         $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$rôle','$prenom','$nom','$email','$password','$responsable')");
         $res = $q->execute();
 
-
+        //Verifier si la requête fonctionne
         if ($res) {
             echo "Inscription réussie";
             header("location:../index.php");
         } else {
-            /* $requete = "SELECT * FROM user";
-            $q = $conn->prepare ($requete);
-            $res = $q->execute();
-            $hhh = $q->fetch();
-            var_dump($hhh); */
-            
             echo "ne marche pas";
         }
 }}

@@ -22,10 +22,11 @@ echo "
     <table>
         <thead>
             <tr>
+            <th>prenom</th>
+            <th>nom</th>
             <th>date</th>  
             <th>Poste</th> 
-            <th>Deplacement:KM parcourus</th>
-            <th>Deplacement: indemnité KM</th> 
+            <th>Deplacement</th>
             <th>Repas </th> 
             <th>Hebergement</th> 
             <th>Autres</th> 
@@ -37,13 +38,14 @@ echo "
 while($donnee = $req->fetch()){
             echo "  <tbody>
                         <tr>
-                            <td>".$donnee['date']."</td>
                             <td>".$donnee['prenom']."</td>
-                            <td>".$donnee['']."</td>
-                            <td>".$donnee['']."</td>
+                            <td>".$donnee['nom']."</td>
+                            <td>".$donnee['date']."</td>
+                            <td>".$donnee['poste']."</td>
+                            <td>".$donnee['transport']."</td>
                             <td>".$donnee['repas']."</td>
                             <td>".$donnee['hebergement']."</td>
-                            <td>".$donnee['']."</td>
+                            <td>".$donnee['autres']."</td>
                             <td>".$donnee['prix_total']."</td>
                             <td>".$donnee['']."</td>
                         </tr>

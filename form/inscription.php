@@ -179,8 +179,8 @@ button{
             $responsable = $_POST['responsable'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     
-        $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$rôle','$prenom','$nom','$email','$password','$responsable')");
-        $res = $q->execute();
+        $q = $conn->prepare("INSERT INTO user(Role, Prenom, Nom, Mail, Mdp, Responsable) VALUES (?,?,?,?,?,?)");
+        $res = $q->execute([$role, $prenom, $nom, $email, $password, $responsable]);
 
 
         if ($res) {

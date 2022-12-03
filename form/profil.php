@@ -38,8 +38,8 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          <div class="buttons">
 
 
-         <a href="/index2.php">Page d'accueil</a>
-         <a href="editprofil.php?id=<?php echo $_SESSION['id'] ?>">Editer mon profil</a>
+         <a href="../index2.php">Page d'accueil</a>
+         <a href="editionprofil.php">Editer mon profil</a>
          <a href="logout.php">Se déconnecter</a>
          </div>
          <?php

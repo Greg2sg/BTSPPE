@@ -1,6 +1,7 @@
 <?php
+//Lancement de la session
 session_start();
- 
+//
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
    $userinfo = $_SESSION;
 }

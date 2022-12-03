@@ -52,11 +52,11 @@ background-color: white;
     .wrapper .name{                        
         font-size: 23px;
         font-weight: 500;
-        color: white;
+        color: rgb(203, 7, 7);
         margin: 10px 0 5px 0;
         }
         .wrapper .about{
-        color: #d0d1d7;
+        color: #0d2bd2;
         font-weight: 400;
         font-size: 16px;
         }

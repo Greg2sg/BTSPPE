@@ -11,7 +11,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/profil.css">
+        <link rel="stylesheet" href="/css/profil.css">
         <title>Document</title>
     </head>
    <body>
@@ -24,13 +24,13 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
   </div>
 </div>
          
-         <div class="name">Nom/Prenom = <?php echo $userinfo['nom']; ?> <?php echo $userinfo['prenom']; ?></div>
+         <!-- <div class="name">Nom/Prenom = <?php echo $userinfo['nom']; ?> <?php echo $userinfo['prenom']; ?></div> -->
          
-         <p>Email = <?php echo $userinfo['email']; ?></p>
+         <p><?php echo $userinfo['email']; ?></p>
          
-         <p>Rôle = <?php echo $userinfo['role']; ?></p>
+         <p><?php echo $userinfo['role']; ?></p>
          
-         <p>Responsable = <?php echo $userinfo['responsable']; ?></p>
+         <p><?php echo $userinfo['responsable']; ?></p>
          
          <?php
          if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
@@ -38,8 +38,8 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          <div class="buttons">
 
 
-         <a href="../index2.php">Page d'accueil</a>
-         <a href="editionprofil.php">Editer mon profil</a>
+         <a href="/index2.php">Page d'accueil</a>
+         <a href="editprofil.php?id=<?php echo $_SESSION['id'] ?>">Editer mon profil</a>
          <a href="logout.php">Se déconnecter</a>
          </div>
          <?php

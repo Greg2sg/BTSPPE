@@ -21,6 +21,7 @@ session_start();
         <input type="password" name="password" id="password" required>
 
         <button name="envoyer">Connexion</button>
+        <button onClick="javascript:document.location.href='inscription.php'">Inscription</button>
     </form>
 </styel>
 

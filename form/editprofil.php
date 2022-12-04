@@ -39,8 +39,10 @@ session_start();
         <div>
             <label>Password: </label>
             <input type="password" name="password" value="" required>
-        </div>
+        </div> 
+        <br>
         <input type="submit" name="editer">
+        <button type="button" onClick="javascript:document.location.href='../index2.php'">Page d'acceuil</button>
     </form>
 
 <?php

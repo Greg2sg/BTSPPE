@@ -57,7 +57,9 @@
             </tfoot>
           </table>
     </fieldset>
+    <br>
     <input type="submit" name="Envoyer">
+    <button onClick="javascript:document.location.href='logout.php'">Page d'acceuil</button>
     </form>
     
 

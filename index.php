@@ -17,10 +17,18 @@ session_start();
     <header class="header">
         <h1 class="logo">Logo</h1>
         <ul class="nav">
-          <!-- <li><a href="form/fichedefrais.php">Fiche de frais</a></li> -->
-          <!-- <li><a href="form/inscription.php">Inscription</a></li> -->
-          <li><a href="form/conn.php">Connexion</a></li>
-          <li><a href="form/propos.php">A propos</a></li>
+           <!-- Afficher lorsque l'on est connecter -->
+            <?php if(isset($_SESSION['id'])): ?>
+            <li><a href="form/fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
+            <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
+            
+            <!-- Afficher si l'on est pas connecter -->
+            <?php else: ?>
+            <li><a href="form/inscription.php">Inscription</a></li> 
+            <li><a href="form/conn.php">Connexion</a></li>
+            
+            <?php endif; ?>
+            <li><a href="form/propos.php">A propos</a></li>
         </ul>
     </header>
     

@@ -42,7 +42,7 @@ session_start();
         </div> 
         <br>
         <input type="submit" name="editer">
-        <button type="button" onClick="javascript:document.location.href='../index2.php'">Page d'acceuil</button>
+        <button type="button" onClick="javascript:document.location.href='../index.php'">Page d'acceuil</button>
     </form>
 
 <?php

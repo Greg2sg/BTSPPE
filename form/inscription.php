@@ -198,7 +198,7 @@ select{
         //Verifier si la requête fonctionne
         if ($res) {
             echo "Inscription réussie";
-            header("location:../index.php?id=".$_SESSION['id']);
+            header("location:../index.php");
         } else {
             echo "ne marche pas";
         }

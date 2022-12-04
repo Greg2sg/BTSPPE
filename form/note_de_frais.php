@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +21,9 @@
 include "db.php";
 
 //Récupérer les donnée de la table fiche frais
-$req = $conn->prepare("SELECT * FROM fichefrais");
-$req->execute();
+$req = $conn->prepare("SELECT * FROM fichefrais WHERE ID_USER = :ID_user");
+$req->execute(array(':ID_user'=>$_SESSION['id']));
+
 echo "  
     <table>
         <thead>

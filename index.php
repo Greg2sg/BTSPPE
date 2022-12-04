@@ -19,7 +19,7 @@ session_start();
         <ul class="nav">
            <!-- Afficher lorsque l'on est connecter -->
             <?php if(isset($_SESSION['id'])): ?>
-            <li><a href="form/fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
+            <li><a href="form/fichedefrais2.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
             <li><a href="form/note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">Note de frais</a></li>
             <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
             

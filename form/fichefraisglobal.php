@@ -22,7 +22,8 @@ $req = $conn->prepare("SELECT ff.date,ff.repas,ff.transport,ff.hebergement,ff.pr
 
 $req->execute();
 echo "  
-    <table>
+<div class="table-wrapper">
+    <table class="fl-table">
         <thead>
             <tr>
             <th>Date</th>  
@@ -50,7 +51,9 @@ while($donnee = $req->fetch()){
                             <td>".$donnee['prix_total']."</td>
                         </tr>
                         <br/>
-                    </tbody>";
+                    </tbody>
+                    </table>
+                    </div>"
 }
 
 ?>

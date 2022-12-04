@@ -9,41 +9,41 @@ if(isset($_SESSION['id'])){
     $req->execute(array($_SESSION['id']));
     $user = $req->fetch();
 
-    if(isset($_POST['newnom']) AND !empty($_POST['newnom']) AND $_POST['newnom'] != $_SESSION['nom'])
+    if(isset($_POST['newnom']) AND !empty($_POST['newnom']) AND $_POST['newnom'] != $user['nom'])
     {
         $newnom=htmlspecialchars($_POST['newnom']) ;
         $insertnom = $conn->prepare("UPDATE user SET Nom=? WHERE ID_user=?");
         $insertnom->execute(array($newnom,$_SESSION['id']));
-        
+        header('Location:../form/profil2.php');
     }
 
-    if(isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newprenom'] != $_SESSION['prenom'])
+    if(isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newprenom'] != $user['prenom'])
     {
         $newprenom=htmlspecialchars($_POST['newprenom']) ;
         $insertprenom = $conn->prepare("UPDATE user SET Prenom=? WHERE ID_user=?");
         $insertprenom->execute(array($newprenom,$_SESSION['id']));
-        
+        header('Location:../form/profil2.php');
     }
-    if(isset($_POST['newposte']) AND !empty($_POST['newposte']) AND $_POST['newposte'] != $_SESSION['poste'])
+    if(isset($_POST['newposte']) AND !empty($_POST['newposte']) AND $_POST['newposte'] != $user['poste'])
     {
         $newposte=htmlspecialchars($_POST['newposte']) ;
         $insertposte = $conn->prepare("UPDATE user SET Poste=? WHERE ID_user=?");
         $insertposte->execute(array($newposte,$_SESSION['id']));
-        
+        header('Location:../form/profil2.php');
     }
-    if(isset($_POST['newemail']) AND !empty($_POST['newemail']) AND $_POST['newemail'] != $_SESSION['poste'])
+    if(isset($_POST['newemail']) AND !empty($_POST['newemail']) AND $_POST['newemail'] != $user['poste'])
     {
         $newemail=htmlspecialchars($_POST['newemail']) ;
         $insertemail = $conn->prepare("UPDATE user SET Mail=? WHERE ID_user=?");
         $insertemail->execute(array($newemail,$_SESSION['id']));
-        
+        header('Location:../form/profil2.php');
     }
-    if(isset($_POST['newresponsable']) AND !empty($_POST['newresponsable']) AND $_POST['newresponsable'] != $_SESSION['responsable'])
+    if(isset($_POST['newresponsable']) AND !empty($_POST['newresponsable']) AND $_POST['newresponsable'] != $user['responsable'])
     {
         $newresponsable=htmlspecialchars($_POST['newresponsable']) ;
         $insertresponsable = $conn->prepare("UPDATE user SET Responsable=? WHERE ID_user=?");
         $insertresponsable->execute(array($newresponsable,$_SESSION['id']));
-        
+        header('Location:../form/profil2.php');
     }
 
     

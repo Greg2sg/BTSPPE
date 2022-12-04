@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/global.css">
     <title>Document</title>
 </head>
 <style>
@@ -21,13 +22,14 @@ $req = $conn->prepare("SELECT ff.date,ff.repas,ff.transport,ff.hebergement,ff.pr
 
 $req->execute();
 echo "  
-    <table>
+<div class="table-wrapper">
+    <table class="fl-table">
         <thead>
             <tr>
-            <th>date</th>  
+            <th>Date</th>  
             <th>Poste</th> 
-            <th>Deplacement:KM parcourus</th>
-            <th>Deplacement: indemnité KM</th> 
+            <th>Deplacement: KM parcourus</th>
+            <th>Deplacement: Indemnité KM</th> 
             <th>Repas </th> 
             <th>Hebergement</th> 
             <th>Autres</th> 
@@ -49,7 +51,9 @@ while($donnee = $req->fetch()){
                             <td>".$donnee['prix_total']."</td>
                         </tr>
                         <br/>
-                    </tbody>";
+                    </tbody>
+                    </table>
+                    </div>"
 }
 
 ?>

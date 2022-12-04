@@ -74,8 +74,6 @@ if(isset($_SESSION['id'])){
             <label > Responsable : </label><br>
             <input type="text" name="newresponsable" placeholder="Responsable" value="<?php echo $user['Responsable']; ?>"><br><br>
             <input type="submit" value="editer">
-
-
         </form>
     </body>
 </html>

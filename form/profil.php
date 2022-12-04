@@ -213,13 +213,13 @@ margin-left: 10px;
        </div>
      </div>
 
-     <div class="name"><?php echo $userinfo['nom']; ?> <?php echo $userinfo['prenom']; ?></div>
+     <div class="name"><?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></div>
      <div class="about">
-     <p>Email : <?php echo $userinfo['email']; ?></p>
+     <p>Email : <?php echo $_SESSION['email']; ?></p>
      <br>
-     <p>Role : <?php echo $userinfo['role']; ?></p>
+     <p>Poste : <?php echo $_SESSION['poste']; ?></p>
      <br>
-     <p>Responsable : <?php echo $userinfo['responsable']; ?></p>
+     <p>Responsable : <?php echo $_SESSION['responsable']; ?></p>
 
      <?php
          if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
@@ -232,7 +232,7 @@ margin-left: 10px;
 
      <br>
      <div class="buttons">
-       <button onClick="javascript:document.location.href='../index2.php'">Page d'acceuil</button>
+       <button onClick="javascript:document.location.href='../index.php'">Page d'acceuil</button>
        <button onClick="javascript:document.location.href='editprofil.php'">Editer mon profil</button>
      </div>
      <br>

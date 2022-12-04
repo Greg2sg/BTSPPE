@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 <style>
     table,td,th, tr{
@@ -25,13 +25,12 @@ echo "
             <tr>
             <th>date</th>  
             <th>Poste</th> 
-            <th>Deplacement:KM parcourus</th>
-            <th>Deplacement: indemnité KM</th> 
+            <th>Deplacement</th> 
             <th>Repas </th> 
             <th>Hebergement</th> 
             <th>Autres</th> 
             <th>Sous-total</th>
-            <th>Etat</th> 
+            
             </tr>
     </thead>";
 
@@ -39,8 +38,6 @@ echo "
 while($donnee = $req->fetch()){
             echo "  <tbody>
                         <tr>
-                            <td>".$donnee['prenom']."</td>
-                            <td>".$donnee['nom']."</td>
                             <td>".$donnee['date']."</td>
                             <td>".$donnee['poste']."</td>
                             <td>".$donnee['transport']."</td>
@@ -48,7 +45,7 @@ while($donnee = $req->fetch()){
                             <td>".$donnee['hebergement']."</td>
                             <td>".$donnee['autres']."</td>
                             <td>".$donnee['prix_total']."</td>
-                            <td>".$donnee['']."</td>
+                            
                         </tr>
                         <br/>
                     </tbody>";

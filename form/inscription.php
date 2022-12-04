@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Design by foolishdeveloper.com -->
+  
     <title>Inscription</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -165,26 +165,35 @@ button{
         <button name="envoyer"> S'inscrire</button>
     </form>
 
-    <?php
-    
+    <?php 
+
 
     
     if(isset($_POST['envoyer'])){
+        //Connexion à la base de donnée 
         include 'db.php';
+
+        //On verifie si tout les champs sont remplis
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
+
+            //Declarations de variables
             $prenom = $_POST['prenom'];
             $nom = $_POST['nom'];
             $email = $_POST['email'];
-            $rôle = $_POST['role'];
+            $role = $_POST['role'];
             $responsable = $_POST['responsable'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     
+        //Inserer des données dans la base de donnée
         $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$rôle','$prenom','$nom','$email','$password','$responsable')");
         $res = $q->execute();
 
+        //Verifier si la requête fonctionne
         if ($res) {
             echo "Inscription réussie";
-            header("location:../index.php");
+            header("location:../index.php?id=".$_SESSION['id']);
+        } else {
+            echo "ne marche pas";
         }
 }}
     ?>

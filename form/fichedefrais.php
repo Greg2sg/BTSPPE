@@ -17,7 +17,7 @@
         <input type="text" name="nom" required>
 
         <legend>Prénom:</legend>
-        <input type="text" name="prénom" required>
+        <input type="text" name="prenom" required>
 
         <legend>Poste:</legend>
         <input type="text" name="poste" required>
@@ -52,30 +52,40 @@
             <tfoot>
               <tr>
                 <th>Prix Total:</th>
-                <td><input type="texte" name="prixtotal">Euro</td>
+                <td><input type="texte" name="prix_total">Euro</td>
               </tr>
             </tfoot>
           </table>
     </fieldset>
+    <br>
     <input type="submit" name="Envoyer">
+    <button onClick="javascript:document.location.href='logout.php'">Page d'acceuil</button>
     </form>
+    
 
-<?php
 
-include "db.php";
 
-if(isset($_POST['Envoyer'])) {
+    <?php
+    //Connexion à la base de donnée
+    include "db.php";
+
+
+if(isset($_POST['Envoyer'])) 
+{
+
+  //Déclaration des variables
     $date = $_POST['date'];
     $nom = $_POST['nom'];
-    $prenom = $_POST['prénom'];
+    $prenom = $_POST['prenom'];
     $poste =$_POST['poste'];
     $mois = $_POST['mois'];
     $hebergement = $_POST['hebergement'];
     $repas = $_POST['repas'];
     $transport = $_POST['transport'];
-    $prixtotal = $_POST['prixtotal'];
+    $prixtotal = $_POST['prix_total'];
 
-    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prénom`, `poste`, `mois`, `Date`, `hebergement`, `repas`, `transport`, `prix total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
+    //Insérer les données dans la base de données
+    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `prix_total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
     $res = $req ->execute();
 
     if($res){

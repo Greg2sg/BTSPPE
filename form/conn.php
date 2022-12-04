@@ -1,8 +1,8 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,11 +12,8 @@ session_start();
     <title>Formulaire de connexion</title>
 </head>
 <body>
-    
     <form method="post" action="conn.php">
-        <form>
         <h3>Connexion</h3>
-
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required>
 
@@ -24,28 +21,34 @@ session_start();
         <input type="password" name="password" id="password" required>
 
         <button name="envoyer">Connexion</button>
+        <button onClick="javascript:document.location.href='inscription.php'">Inscription</button>
     </form>
 </styel>
 
         <?php
 
 include 'db.php';
-
+//Execution du code si on appuie sur 'envoyer'
 if(isset($_POST['envoyer'])) {
    $email = $_POST['email'];
    $password =$_POST['password'];
    if(!empty($email) AND !empty($password)) {
+
+      //Récupération des données de la table 'user'
       $r = "SELECT * FROM user WHERE mail = '$email' ";
       $req = $conn->prepare($r);
       $req->execute();
       $userinfo = $req->fetch();
-      echo "<br/>";
-      var_dump($userinfo);
-      echo "<br/>";
       if($userinfo) {
+
+         //Hashage de mots de passe
          $passwordHash = $userinfo['Mdp'];
          echo $password." ".$passwordHash;
+
+         //Vérification du mots de passe hashé
          if(password_verify($password, $passwordHash)){
+
+            //Création de la SESSION
             $_SESSION['id'] = $userinfo['ID_User'];
             $_SESSION['nom'] = $userinfo['Nom'];
             $_SESSION['prenom'] = $userinfo['Prenom'];
@@ -64,8 +67,7 @@ if(isset($_POST['envoyer'])) {
       echo "Tous les champs doivent être complétés !";
    }
 }
-?>
-        
+?>    
     </form>
 </body>
 </html>

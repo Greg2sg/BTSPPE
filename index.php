@@ -14,20 +14,17 @@
           <!-- <li><a href="form/fichedefrais.php">Fiche de frais</a></li> -->
           <!-- <li><a href="form/inscription.php">Inscription</a></li> -->
           <li><a href="form/conn.php">Connexion</a></li>
+          <li><a href="form/inscription.php">Inscription</a></li>
           <li><a href="form/propos.php">A propos</a></li>
         </ul>
     </header>
+    
     <div>
-
-
-    <div2>
-        
-    <div3>
-    <h2>Galaxy Swiss Bourdin</h2>
-    </div3>
-
-    </div2>
-
+        <div2>
+            <div3>
+                <h2>Galaxy Swiss Bourdin</h2>
+            </div3>
+        </div2>
     </div>
 
 </body>

@@ -9,7 +9,10 @@
    </head>
    <body>
     <div class="container">
-        <div class="text">Bienvenue chez GSB</div>
+         <img src="/asset/logo.png"></img>
+        <div class="text">Bienvenue chez GSB
+        <br />
+        </div>
         <form method="POST" action="fichedefrais2.php" name="Visiteur">
 
         <div class="form-row">

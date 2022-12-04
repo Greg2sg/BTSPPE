@@ -9,7 +9,7 @@
    </head>
    <body>
     <div class="container">
-         <img src="/asset/logo.png"></img>
+      <img src="/asset/logo.png"></img>
         <div class="text">Bienvenue chez GSB
         <br />
         </div>
@@ -80,13 +80,14 @@
                  <label for="">Prix Total:</label>
               </div>
                  
-                 </div>
+                 </div>               
                  <div class="form-row submit-btn">
                     <div class="input-data">
                        <div class="inner"></div>
-                       <input type="submit" name="Envoyer">
-                    </div></div>
-              </div>
+                       <input type="submit" name="Envoyer">     
+                    </div></div>   
+                    </div>
+              </div>             
            </div>
         </form>
      </div>

@@ -40,8 +40,6 @@ if(isset($_SESSION['id'])){
             <label > Email : </label><br>
             <input type="text" name="newemail" placeholder="email" value="<?php echo $_SESSION['email']; ?>"><br><br>
             <input type="submit" value="editer">
-
-
         </form>
     </body>
 </html>

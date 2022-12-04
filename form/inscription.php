@@ -133,6 +133,13 @@ button{
   margin-right: 4px;
 }
 
+select{
+    font-size: .9rem;
+    padding: 2px 5px;
+    background-color: rgba(255,255,255,0.13);
+}
+
+
     </style>
 </head>
 <body>
@@ -153,8 +160,8 @@ button{
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required>
 
-        <label for="username">Rôle</label>`
-        <input type="text" name="role" id="role" required>
+        <label for="poste">Poste</label>
+        <input type="text" name="poste" id="poste" required>
 
         <label for="username">Responsable</label>
         <input type="text" name="responsable" id="responsable" required>
@@ -180,12 +187,12 @@ button{
             $prenom = $_POST['prenom'];
             $nom = $_POST['nom'];
             $email = $_POST['email'];
-            $role = $_POST['role'];
+            $poste = $_POST['poste'];
             $responsable = $_POST['responsable'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     
         //Inserer des données dans la base de donnée
-        $q = $conn->prepare("INSERT INTO `user`(`Role`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$rôle','$prenom','$nom','$email','$password','$responsable')");
+        $q = $conn->prepare("INSERT INTO `user`(`Poste`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$poste','$prenom','$nom','$email','$password','$responsable')");
         $res = $q->execute();
 
         //Verifier si la requête fonctionne

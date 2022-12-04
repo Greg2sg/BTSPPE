@@ -54,8 +54,8 @@ if(isset($_POST['envoyer'])) {
             $_SESSION['prenom'] = $userinfo['Prenom'];
             $_SESSION['email'] = $userinfo['Mail'];
             $_SESSION['responsable'] = $userinfo['Responsable'];
-            $_SESSION['role'] = $userinfo['Role'];
-            header("Location: ../index2.php?id=".$_SESSION['id']);
+            $_SESSION['poste'] = $userinfo['Poste'];
+            header("Location: ../index.php?id=".$_SESSION['id']);
          }else{
              echo "<label>Mauvais email ou mot de passe !</label>";
          }

@@ -25,10 +25,10 @@ echo "
     <table>
         <thead>
             <tr>
-            <th>date</th>  
+            <th>Date</th>  
             <th>Poste</th> 
-            <th>Deplacement:KM parcourus</th>
-            <th>Deplacement: indemnité KM</th> 
+            <th>Deplacement: KM parcourus</th>
+            <th>Deplacement: Indemnité KM</th> 
             <th>Repas </th> 
             <th>Hebergement</th> 
             <th>Autres</th> 

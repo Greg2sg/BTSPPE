@@ -48,13 +48,11 @@
                 <th >Transport:</th>
                 <td><input type="number" name="transport">Euro</td>
               </tr>
-            </tbody>
-            <tfoot>
               <tr>
-                <th>Prix Total:</th>
-                <td><input type="texte" name="prix_total">Euro</td>
+                <th >Autres:</th>
+                <td><input type="number" name="autres">Euro</td>
               </tr>
-            </tfoot>
+            </tbody>
           </table>
     </fieldset>
     <input type="submit" name="Envoyer">

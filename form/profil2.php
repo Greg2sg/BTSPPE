@@ -48,7 +48,7 @@ if(isset($_SESSION['id'])){
      <br>
      <p>Poste : <?php echo $user['Poste']; ?></p>
      <br>
-     <p>Responsable : <?php echo $_SESSION['responsable']; ?></p>
+     <p>Responsable : <?php echo $user['Responsable']; ?></p>
 
     
 

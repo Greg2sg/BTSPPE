@@ -16,12 +16,33 @@ if(isset($_SESSION['id'])){
         $insertnom->execute(array($newnom,$_SESSION['id']));
         
     }
-    
+
     if(isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newprenom'] != $_SESSION['prenom'])
     {
         $newprenom=htmlspecialchars($_POST['newprenom']) ;
         $insertprenom = $conn->prepare("UPDATE user SET Prenom=? WHERE ID_user=?");
         $insertprenom->execute(array($newprenom,$_SESSION['id']));
+        
+    }
+    if(isset($_POST['newposte']) AND !empty($_POST['newposte']) AND $_POST['newposte'] != $_SESSION['poste'])
+    {
+        $newposte=htmlspecialchars($_POST['newposte']) ;
+        $insertposte = $conn->prepare("UPDATE user SET Poste=? WHERE ID_user=?");
+        $insertposte->execute(array($newposte,$_SESSION['id']));
+        
+    }
+    if(isset($_POST['newemail']) AND !empty($_POST['newemail']) AND $_POST['newemail'] != $_SESSION['poste'])
+    {
+        $newemail=htmlspecialchars($_POST['newemail']) ;
+        $insertemail = $conn->prepare("UPDATE user SET Mail=? WHERE ID_user=?");
+        $insertemail->execute(array($newemail,$_SESSION['id']));
+        
+    }
+    if(isset($_POST['newresponsable']) AND !empty($_POST['newresponsable']) AND $_POST['newresponsable'] != $_SESSION['responsable'])
+    {
+        $newresponsable=htmlspecialchars($_POST['newresponsable']) ;
+        $insertresponsable = $conn->prepare("UPDATE user SET Responsable=? WHERE ID_user=?");
+        $insertresponsable->execute(array($newresponsable,$_SESSION['id']));
         
     }
 
@@ -50,6 +71,8 @@ if(isset($_SESSION['id'])){
             <input type="text" name="newposte" placeholder="Poste" value="<?php echo $user['Poste']; ?>"><br><br>
             <label > Email : </label><br>
             <input type="text" name="newemail" placeholder="email" value="<?php echo $user['Mail']; ?>"><br><br>
+            <label > Responsable : </label><br>
+            <input type="text" name="newresponsable" placeholder="Responsable" value="<?php echo $user['Responsable']; ?>"><br><br>
             <input type="submit" value="editer">
 
 

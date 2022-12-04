@@ -54,7 +54,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
      <br>
      <div class="buttons">
        <button onClick="javascript:document.location.href='../index.php'">Page d'acceuil</button>
-       <button onClick="javascript:document.location.href='editprofil.php'">Editer mon profil</button>
+       <button onClick="javascript:document.location.href='editprofil2.php'">Editer mon profil</button>
      </div>
      <br>
      <div class="buttons">

@@ -29,7 +29,7 @@ echo "
         <thead>
             <tr>
             <th>date</th>  
-            <th>Poste</th> 
+            <th>description</th> 
             <th>Deplacement</th> 
             <th>Repas </th> 
             <th>Hebergement</th> 
@@ -39,12 +39,12 @@ echo "
             </tr>
     </thead>";
 
-//
+
 while($donnee = $req->fetch()){
             echo "  <tbody>
                         <tr>
                             <td>".$donnee['date']."</td>
-                            <td>".$donnee['poste']."</td>
+                            <td>".$donnee['description']."</td>
                             <td>".$donnee['transport']."</td>
                             <td>".$donnee['repas']."</td>
                             <td>".$donnee['hebergement']."</td>

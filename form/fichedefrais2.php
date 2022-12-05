@@ -120,7 +120,7 @@ if(isset($_POST['Envoyer']))
     if($res){
       echo "envoie réussi";
     }else{
-      echo "rien ne marche";
+      echo "réessayer";
     }
 
 }

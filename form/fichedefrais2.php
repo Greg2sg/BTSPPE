@@ -114,8 +114,9 @@ if(isset($_POST['Envoyer']))
     $prixtotal = $_POST['prix_total'];
 
     //Insérer les données dans la base de données
-    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `prix_total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
+    $req = $conn->prepare("INSERT INTO 'fichefrais'( 'nom', 'prenom', 'poste', 'mois', 'date', 'hebergement', 'repas', 'transport', 'prix_total') VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
     $res = $req ->execute();
+   //  header("location:index.php");
 
     if($res){
       echo "envoie réussi";

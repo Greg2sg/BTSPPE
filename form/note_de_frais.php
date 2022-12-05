@@ -56,5 +56,7 @@ while($donnee = $req->fetch()){
                     </tbody>";
 }
 ?>
+<button onClick="javascript:document.location.href='editfichefrais.php'">Editer la fiches frais</button>
 </body>
+
 </html>

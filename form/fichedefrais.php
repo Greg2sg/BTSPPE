@@ -132,7 +132,6 @@ if(isset($_POST['Envoyer']))
     $transport = $_POST['transport'];
     $autres = $_POST['autres'];
     $id_user = intval($_SESSION['id']);
-
    
     //Insérer les données dans la base de données
     $r = "INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `autres`,`description` ,`ID_User`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$autres','$description', '$id_user')";

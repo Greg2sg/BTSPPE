@@ -25,6 +25,9 @@ $userinfo = $_SESSION;
                 if($userinfo['id_role'] == 3){?>
                     <li><a href="form/inscription.php">Inscription</a></li>
                 <?php } ?>
+                <?php if($userinfo['id_role'] == 2){?>
+                    <li><a href="form/validation.php">Validation</a></li>
+                <?php } ?>
                 
             <li><a href="form/fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
             <li><a href="form/note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">Note de frais</a></li>

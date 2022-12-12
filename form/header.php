@@ -23,7 +23,10 @@ $userinfo = $_SESSION;
            <!-- Afficher lorsque l'on est connecter -->
             <?php if(isset($_SESSION['id'])){
                 if($userinfo['id_role'] == 3){?>
-                    <li><a href="form/inscription.php">Inscription</a></li>
+                    <li><a href="inscription.php">Inscription</a></li>
+                <?php } ?>
+                <?php if($userinfo['id_role'] == 2){?>
+                    <li><a href="validation.php">Validation</a></li>
                 <?php } ?>
                 
             <li><a href="fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 

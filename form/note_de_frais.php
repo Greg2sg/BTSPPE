@@ -46,6 +46,7 @@ echo "
 
             
             </tr>
+            
     </thead>";
 
 
@@ -60,7 +61,7 @@ while($donnee = $req->fetch()){
                             <td>".$donnee['autres']." euro</td>
                             
                         </tr>
-                        <br/>
+                        
                     </tbody>";
 }
 ?>

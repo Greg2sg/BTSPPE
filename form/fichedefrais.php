@@ -1,3 +1,12 @@
+
+<?php
+
+session_start();
+
+echo($_SESSION['id']);
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr" >
@@ -13,7 +22,7 @@
         <div class="text">Bienvenue chez GSB
         <br />
         </div>
-        <form method="POST" action="fichedefrais2.php" name="Visiteur">
+        <form method="POST" action="fichedefrais.php" name="Visiteur">
 
         <div class="form-row">
         <div class="input-data">
@@ -40,6 +49,11 @@
               <input type="text" name="poste" required>
                  <div class="underline"></div>
                  <label for="">Poste:</label>
+              </div>
+              <div class="input-data">
+              <input type="text" name="description" required>
+                 <div class="underline"></div>
+                 <label for="">Description:</label>
               </div>
               <div class="input-data2">
               <input type="date" name="date" required>
@@ -75,18 +89,20 @@
                  <label for="">Transport:</label>
               </div>
               <div class="input-data">
-              <input type="number" name="prix_total" placeholder="En euros" min="0" required>
+              <input type="number" name="autres" placeholder="En euros" min="0" required>
                  <div class="underline"></div>
-                 <label for="">Prix Total:</label>
+                 <label for="">Autres:</label>
               </div>
                  
                  </div>               
                  <div class="form-row submit-btn">
                     <div class="input-data">
                        <div class="inner"></div>
-                       <input type="submit" name="Envoyer">     
-                    </div></div>   
+                       <input type="submit" name="Envoyer">
+                            
+                    </div><button onClick="javascript:document.location.href='../index.php'">Retour</button></div>   
                     </div>
+                    
               </div>             
            </div>
         </form>
@@ -105,24 +121,30 @@ if(isset($_POST['Envoyer']))
   //Déclaration des variables
     $date = $_POST['date'];
     $nom = $_POST['nom'];
+    $description = $_POST['description'];
     $prenom = $_POST['prenom'];
     $poste =$_POST['poste'];
     $mois = $_POST['mois'];
     $hebergement = $_POST['hebergement'];
     $repas = $_POST['repas'];
     $transport = $_POST['transport'];
-    $prixtotal = $_POST['prix_total'];
+    $autres = $_POST['autres'];
+    $id_user = intval($_SESSION['id']);
 
+   
     //Insérer les données dans la base de données
-    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `prix_total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
+    $r = "INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `autres`,`description` ,`ID_User`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$autres','$description', '$id_user')";
+    var_dump($r);
+    $req = $conn->prepare($r);
     $res = $req ->execute();
 
     if($res){
-      echo "envoie réussi";
+      // echo "<script>alert('envoie réussi');window.location.href='../index.php'</script>";
+      
     }else{
       echo "rien ne marche";
     }
-
+    
 }
 
 ?>

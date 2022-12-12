@@ -21,7 +21,7 @@ session_start();
         <input type="password" name="password" id="password" required>
 
         <button name="envoyer">Connexion</button>
-        <button onClick="javascript:document.location.href='inscription.php'">Inscription</button>
+        <button onClick="javascript:document.location.href='../index.php'">Retour</button>
     </form>
 </styel>
 
@@ -43,7 +43,7 @@ if(isset($_POST['envoyer'])) {
 
          //Hashage de mots de passe
          $passwordHash = $userinfo['Mdp'];
-         echo $password." ".$passwordHash;
+         //echo $password." ".$passwordHash;
 
          //Vérification du mots de passe hashé
          if(password_verify($password, $passwordHash)){
@@ -55,6 +55,7 @@ if(isset($_POST['envoyer'])) {
             $_SESSION['email'] = $userinfo['Mail'];
             $_SESSION['responsable'] = $userinfo['Responsable'];
             $_SESSION['poste'] = $userinfo['Poste'];
+
             header("Location: ../index.php?id=".$_SESSION['id']);
          }else{
              echo "<label>Mauvais email ou mot de passe !</label>";

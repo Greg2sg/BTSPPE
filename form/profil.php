@@ -1,8 +1,32 @@
 <?php
+//Lancement de la Session
 session_start();
- 
-if(isset($_GET['id']) AND $_GET['id'] > 0) {
-   $userinfo = $_SESSION;
+
+//Connexion à la base de donnée
+include 'db.php';
+
+
+if(isset($_SESSION['id'])){
+
+    $req=$conn->prepare("SELECT * FROM user WHERE ID_user=? ");
+    $req->execute(array($_SESSION['id']));
+    $user = $req->fetch();
+    
+    if($user['Poste'] == "responsable"){
+      echo "
+      <style>
+      p{
+        color: red;
+      }
+      </style>";
+    }else{
+      echo "
+      <style>
+      p{
+        color: blue;
+      }
+      </style>";
+    }
 
 ?>
 
@@ -16,10 +40,8 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
   <title>Document</title>
   <link rel="stylesheet" href="../css/profil.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-
-
 </head>
+
 <body>
   <div class="background">
       <div class="shape"></div>
@@ -34,36 +56,27 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
        </div>
      </div>
 
-     <div class="name"><?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></div>
+     <div class="name"><?php echo $user['Nom']; ?> <?php echo $user['Prenom']; ?></div>
      <div class="about">
-     <p>Email : <?php echo $_SESSION['email']; ?></p>
+     <p>Email : <?php echo $user['Mail']; ?></p>
      <br>
-     <p>Poste : <?php echo $_SESSION['poste']; ?></p>
+     <p>Poste : <?php echo $user['Poste']; ?></p>
      <br>
-     <p>Responsable : <?php echo $_SESSION['responsable']; ?></p>
+     <p>Responsable : <?php echo $user['Responsable']; ?></p>
+     <br>
 
-     <?php
-         if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
-         ?>
-  </div>
-
-            
-
-
-
+     <p>Adresse postale : <?php echo $user['adresse']; ?></p>
      <br>
      <div class="buttons">
        <button onClick="javascript:document.location.href='../index.php'">Page d'acceuil</button>
-       <button onClick="javascript:document.location.href='editprofil2.php'">Editer mon profil</button>
+       <button onClick="javascript:document.location.href='editprofil.php'">Editer mon profil</button>
      </div>
      <br>
      <div class="buttons">
        <button onClick="javascript:document.location.href='logout.php'">Se deconnecter</button>
        
      </div>
- <?php
-         }
-         ?>
+ 
    </div>
 </body>
 </html>

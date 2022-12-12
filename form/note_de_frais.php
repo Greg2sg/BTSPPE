@@ -16,6 +16,7 @@ session_start();
     }
 </style>
 <body>
+    <h1>Note de Frais de <?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></h1>
 <?php
 //Connexion à la base de donnée
 include "db.php";
@@ -24,6 +25,7 @@ include "db.php";
 $req = $conn->prepare("SELECT * FROM fichefrais WHERE ID_USER = :ID_user");
 $req->execute(array(':ID_user'=>$_SESSION['id']));
 
+//Mise en forme du tableau de note de frais
 echo "  
     <table>
         <thead>
@@ -34,7 +36,7 @@ echo "
             <th>Repas </th> 
             <th>Hebergement</th> 
             <th>Autres</th> 
-            <th>Sous-total</th>
+
             
             </tr>
     </thead>";
@@ -44,17 +46,17 @@ while($donnee = $req->fetch()){
             echo "  <tbody>
                         <tr>
                             <td>".$donnee['date']."</td>
-                            <td>".$donnee['description']."</td>
-                            <td>".$donnee['transport']."</td>
-                            <td>".$donnee['repas']."</td>
-                            <td>".$donnee['hebergement']."</td>
-                            <td>".$donnee['autres']."</td>
-                            <td>".$donnee['prix_total']."</td>
+                            <td>".$donnee['description']." </td>
+                            <td>".$donnee['transport']." euro</td>
+                            <td>".$donnee['repas']." euro</td>
+                            <td>".$donnee['hebergement']." euro</td>
+                            <td>".$donnee['autres']." euro</td>
                             
                         </tr>
                         <br/>
                     </tbody>";
 }
 ?>
+<button onClick="javascript:document.location.href='../index.php'">Retour</button>
 </body>
 </html>

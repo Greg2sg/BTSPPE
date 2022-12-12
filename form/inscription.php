@@ -162,6 +162,9 @@ select{
 
         <label for="poste">Poste</label>
         <input type="text" name="poste" id="poste" required>
+        
+        <label for="adresse">Adresse postale</label>
+        <input type="text" name="adresse" id="adresse" required>
 
         <label for="username">Responsable</label>
         <input type="text" name="responsable" id="responsable" required>
@@ -169,7 +172,7 @@ select{
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required>
 
-        <button name="envoyer"> S'inscrire</button>
+        <button name="envoyer">S'inscrire</button>
     </form>
 
     <?php 
@@ -189,10 +192,11 @@ select{
             $email = $_POST['email'];
             $poste = $_POST['poste'];
             $responsable = $_POST['responsable'];
+            $adresse = $_POST['adresse'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     
         //Inserer des données dans la base de donnée
-        $q = $conn->prepare("INSERT INTO `user`(`Poste`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`) VALUES ('$poste','$prenom','$nom','$email','$password','$responsable')");
+        $q = $conn->prepare("INSERT INTO `user`(`Poste`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`, `adresse`) VALUES ('$poste','$prenom','$nom','$email','$password','$responsable' , '$adresse')");
         $res = $q->execute();
 
         //Verifier si la requête fonctionne

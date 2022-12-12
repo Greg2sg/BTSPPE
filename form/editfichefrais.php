@@ -3,8 +3,7 @@ session_start();
 
 include 'db.php';
 
-if(isset($_SESSION['id'])){
-    
+if(isset($_SESSION['id'])){ 
 
     $req=$conn->prepare("SELECT * FROM fichefrais WHERE ID_fichefrais=? ");
     $req->execute(array($_SESSION['id']));
@@ -33,6 +32,7 @@ if(isset($_SESSION['id'])){
         $inserttransport->execute(array($newtransport,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
+
     if(isset($_POST['newrepas']) AND !empty($_POST['newrepas']) AND $_POST['newrepas'] != $fichefrais['repas'])
     {
         $newrepas=htmlspecialchars($_POST['newrepas']) ;
@@ -40,6 +40,7 @@ if(isset($_SESSION['id'])){
         $insertrepas->execute(array($newrepas,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
+
     if(isset($_POST['newhebergement']) AND !empty($_POST['newhebergement']) AND $_POST['newhebergement'] != $fichefrais['hebergement'])
     {
         $newhebergement=htmlspecialchars($_POST['newhebergement']) ;
@@ -47,6 +48,7 @@ if(isset($_SESSION['id'])){
         $inserthebergement->execute(array($newhebergement,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
+
     if(isset($_POST['newautres']) AND !empty($_POST['newautres']) AND $_POST['newautres'] != $fichefrais['autres'])
     {
         $newautres=htmlspecialchars($_POST['newautres']) ;
@@ -54,6 +56,7 @@ if(isset($_SESSION['id'])){
         $insertautres->execute(array($newautres,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
+    
     if(isset($_POST['newprix_total']) AND !empty($_POST['newprix_total']) AND $_POST['newprix_total'] != $fichefrais['prix_total'])
     {
         $newprix_total=htmlspecialchars($_POST['newprix_total']) ;
@@ -93,11 +96,9 @@ if(isset($_SESSION['id'])){
 </html>
 <?php
 
-
 }
 else{
     header('Location:note_de_frais.php');
 }
-
 
 ?>

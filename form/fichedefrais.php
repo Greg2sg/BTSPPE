@@ -31,7 +31,6 @@ echo($_SESSION['id']);
                  <label for=""><h3>Saisie fiche de frais pour le mois :</h3></label>
               </div></div>
 
-
         <div class="form-row">
               <div class="input-data">
               <input type="text" name="nom" required>
@@ -133,7 +132,7 @@ if(isset($_POST['Envoyer']))
 
    
     //Insérer les données dans la base de données
-    $req = $conn->prepare("INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `prix_total`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
+    $req = $conn->prepare("INSERT INTO 'fichefrais'( 'nom', 'prenom', 'poste', 'mois', 'date', 'hebergement', 'repas', 'transport', 'prix_total') VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$prixtotal')");
     $res = $req ->execute();
    //  header("location:index.php");
 

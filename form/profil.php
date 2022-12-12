@@ -64,19 +64,19 @@ if(isset($_SESSION['id'])){
      <br>
      <p>Responsable : <?php echo $user['Responsable']; ?></p>
      <br>
-
      <p>Adresse postale : <?php echo $user['adresse']; ?></p>
      <br>
+
      <div class="buttons">
        <button onClick="javascript:document.location.href='../index.php'">Page d'acceuil</button>
        <button onClick="javascript:document.location.href='editprofil.php'">Editer mon profil</button>
      </div>
+
      <br>
      <div class="buttons">
-       <button onClick="javascript:document.location.href='logout.php'">Se deconnecter</button>
-       
+       <button onClick="javascript:document.location.href='logout.php'">Se deconnecter</button> 
      </div>
- 
+     
    </div>
 </body>
 </html>

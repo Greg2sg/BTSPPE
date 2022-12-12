@@ -152,7 +152,7 @@ select{
         <h3>Inscription</h3>
 
         <label for="username">Prenom</label>
-        <input type="text" name="prenom" id="prenom" required>
+        <input type="text" name="prenom" id="prenom" >
         
         <label for="username">Nom</label>
         <input type="text" name="nom"  id="nom" required>
@@ -164,10 +164,23 @@ select{
         <input type="text" name="poste" id="poste" required>
         
         <label for="adresse">Adresse postale</label>
-        <input type="text" name="adresse" id="adresse" required>
+        <input type="text" name="adresse" id="adresse" >
 
-        <label for="username">Responsable</label>
+        <label for="responsable">Responsable</label>
         <input type="text" name="responsable" id="responsable" required>
+
+        <label for="role">Role</label>
+        <input type="number" name="role" id="role" required>
+
+        <!-- <label for="pet-select">Choisir un role:</label>
+
+        <select name="pets" id="pet-select">
+            <option value="">--Choisir le role--</option>
+            <option value="1">Visiteur</option>
+            <option value="2">Comptable</option>
+            <option value="3">Admin</option>
+            
+        </select> -->
 
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required>
@@ -187,6 +200,7 @@ select{
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
             //Declarations de variables
+            $role = $_POST['role'];
             $prenom = $_POST['prenom'];
             $nom = $_POST['nom'];
             $email = $_POST['email'];
@@ -196,7 +210,7 @@ select{
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     
         //Inserer des données dans la base de donnée
-        $q = $conn->prepare("INSERT INTO `user`(`Poste`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`, `adresse`) VALUES ('$poste','$prenom','$nom','$email','$password','$responsable' , '$adresse')");
+        $q = $conn->prepare("INSERT INTO `user`(`Poste`, `Prenom`, `Nom`, `Mail`, `Mdp`, `Responsable`,`id_role`, `adresse`) VALUES ('$poste','$prenom','$nom','$email','$password','$responsable' ,'$role', '$adresse')");
         $res = $q->execute();
 
         //Verifier si la requête fonctionne

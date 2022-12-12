@@ -17,6 +17,7 @@ session_start();
     <header class="header">
         <h1 class="logo">Logo</h1>
         <ul class="nav">
+            
            <!-- Afficher lorsque l'on est connecter -->
             <?php if(isset($_SESSION['id'])): ?>
             <li><a href="form/fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 

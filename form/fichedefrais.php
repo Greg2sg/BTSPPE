@@ -16,7 +16,11 @@ echo($_SESSION['id']);
       <link rel="stylesheet" href="../css/frais.css">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
+   <style>
+
+   </style>
    <body>
+
     <div class="container">
       <img src="/asset/logo.png"></img>
         <div class="text">Bienvenue chez GSB
@@ -134,7 +138,7 @@ if(isset($_POST['Envoyer']))
    
     //Insérer les données dans la base de données
     $r = "INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `autres`,`description` ,`ID_User`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$autres','$description', '$id_user')";
-    var_dump($r);
+   //  var_dump($r);
     $req = $conn->prepare($r);
     $res = $req ->execute();
 

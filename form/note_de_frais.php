@@ -13,8 +13,15 @@ session_start();
 <style>
     table,td,th, tr{
         border: 1px solid;
+        color: black;
+    }
+    h1{
+        color: black;
     }
 </style>
+<?php 
+include "header.php";
+?>
 <body>
     <h1>Note de Frais de <?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></h1>
 <?php

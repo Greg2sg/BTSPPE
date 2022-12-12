@@ -21,7 +21,7 @@ session_start();
 include "db.php";
 
 //Récupérer les donnée de la table fiche frais
-$req = $conn->prepare("SELECT * FROM fichefrais WHERE ID_USER = :ID_user");
+$req = $conn->prepare("SELECT * FROM fichefrais");
 $req->execute(array(':ID_user'=>$_SESSION['id']));
 
 echo "  
@@ -38,7 +38,6 @@ echo "
             
             </tr>
     </thead>";
-
 
 while($donnee = $req->fetch()){
             echo "  <tbody>

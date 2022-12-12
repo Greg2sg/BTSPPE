@@ -22,17 +22,17 @@ session_start();
             <li><a href="form/fichedefrais2.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
             <li><a href="form/note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">Note de frais</a></li>
             <li><a href="form/profil2.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
-            
+
             <!-- Afficher si l'on est pas connecter -->
             <?php else: ?>
             <li><a href="form/inscription.php">Inscription</a></li> 
             <li><a href="form/conn.php">Connexion</a></li>
-            
+
             <?php endif; ?>
             <li><a href="form/propos.php">A propos</a></li>
         </ul>
     </header>
-    
+
     <div>
         <div2>
             <div3>

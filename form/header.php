@@ -25,11 +25,11 @@ session_start();
             
             <!-- Afficher si l'on est pas connecter -->
             <?php else: ?>
-            <li><a href="form/inscription.php">Inscription</a></li> 
-            <li><a href="form/conn.php">Connexion</a></li>
+            <li><a href="inscription.php">Inscription</a></li> 
+            <li><a href="conn.php">Connexion</a></li>
 
             <?php endif; ?>
-            <li><a href="form/propos.php">A propos</a></li>
+            <li><a href="propos.php">A propos</a></li>
         </ul>
     </header>
 

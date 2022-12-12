@@ -45,6 +45,13 @@ if(isset($_SESSION['id'])){
         $insertresponsable->execute(array($newresponsable,$_SESSION['id']));
         
     }
+    if(isset($_POST['newadresse']) AND !empty($_POST['newadresse']) AND $_POST['newadresse'] != $_SESSION['adresse'])
+    {
+        $newadresse=htmlspecialchars($_POST['newadresse']) ;
+        $insertadresse = $conn->prepare("UPDATE user SET adresse=? WHERE ID_user=?");
+        $insertadresse->execute(array($newadresse,$_SESSION['id']));
+        
+    }
 
     
 

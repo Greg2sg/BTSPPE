@@ -142,7 +142,7 @@ if(isset($_POST['Envoyer']))
    //  header("location:index.php");
 
     if($res){
-      // echo "<script>alert('envoie réussi');window.location.href='../index.php'</script>";
+      echo "<script>alert('envoie réussi');window.location.href='../index.php'</script>";
       
     }else{
       echo "réessayer";

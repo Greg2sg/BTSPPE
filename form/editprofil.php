@@ -14,7 +14,7 @@ if(isset($_SESSION['id'])){
         $newnom=htmlspecialchars($_POST['newnom']) ;
         $insertnom = $conn->prepare("UPDATE user SET Nom=? WHERE ID_user=?");
         $insertnom->execute(array($newnom,$_SESSION['id']));
-        
+        header('Location:profil.php');
     }
 
     if(isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newprenom'] != $_SESSION['prenom'])
@@ -22,28 +22,35 @@ if(isset($_SESSION['id'])){
         $newprenom=htmlspecialchars($_POST['newprenom']) ;
         $insertprenom = $conn->prepare("UPDATE user SET Prenom=? WHERE ID_user=?");
         $insertprenom->execute(array($newprenom,$_SESSION['id']));
-        
+        header('Location:profil.php');
     }
-    if(isset($_POST['newposte']) AND !empty($_POST['newposte']) AND $_POST['newposte'] != $_SESSION['poste'])
+    if(isset($_POST['newposte']) AND !empty($_POST['newposte']) AND $_POST['newposte'] != $_SESSION['Poste'])
     {
         $newposte=htmlspecialchars($_POST['newposte']) ;
         $insertposte = $conn->prepare("UPDATE user SET Poste=? WHERE ID_user=?");
         $insertposte->execute(array($newposte,$_SESSION['id']));
-        
+        header('Location:profil.php');
     }
-    if(isset($_POST['newemail']) AND !empty($_POST['newemail']) AND $_POST['newemail'] != $_SESSION['poste'])
+    if(isset($_POST['newemail']) AND !empty($_POST['newemail']) AND $_POST['newemail'] != $_SESSION['email'])
     {
         $newemail=htmlspecialchars($_POST['newemail']) ;
         $insertemail = $conn->prepare("UPDATE user SET Mail=? WHERE ID_user=?");
         $insertemail->execute(array($newemail,$_SESSION['id']));
-        
+        header('Location:profil.php');
     }
     if(isset($_POST['newresponsable']) AND !empty($_POST['newresponsable']) AND $_POST['newresponsable'] != $_SESSION['responsable'])
     {
         $newresponsable=htmlspecialchars($_POST['newresponsable']) ;
         $insertresponsable = $conn->prepare("UPDATE user SET Responsable=? WHERE ID_user=?");
         $insertresponsable->execute(array($newresponsable,$_SESSION['id']));
-        
+        header('Location:profil.php');
+    }
+    if(isset($_POST['newadresse']) AND !empty($_POST['newadresse']) AND $_POST['newadresse'] != $_SESSION['adresse'])
+    {
+        $newadresse=htmlspecialchars($_POST['newadresse']) ;
+        $insertadresse = $conn->prepare("UPDATE user SET adresse=? WHERE ID_user=?");
+        $insertadresse->execute(array($newadresse,$_SESSION['id']));
+        header('Location:profil.php');
     }
 
     
@@ -64,19 +71,19 @@ if(isset($_SESSION['id'])){
         <form method="POST" action="editprofil.php">
             <h2>Edition de mon profil</h2>
             <label >Nom : </label><br>
-            <input type="text" name="newnom" placeholder="nom" value="<?php echo $user['Nom']; ?>"><br><br>
+            <input type="text" name="newnom" placeholder="nom" value="<?php $_SESSION['nom']; ?>"><br><br>
             <label >Prenom : </label><br>
-            <input type="text" name="newprenom" placeholder="prenom" value="<?php echo $user['Prenom']; ?>"><br><br>
+            <input type="text" name="newprenom" placeholder="prenom" value="<?php $_SESSION['prenom']; ?>"><br><br>
             <label >Poste : </label><br>
-            <input type="text" name="newposte" placeholder="Poste" value="<?php echo $user['Poste']; ?>"><br><br>
+            <input type="text" name="newposte" placeholder="Poste" value="<?php $_SESSION['poste']; ?>"><br><br>
             <label > Email : </label><br>
-            <input type="text" name="newemail" placeholder="email" value="<?php echo $user['Mail']; ?>"><br><br>
+            <input type="text" name="newemail" placeholder="email" value="<?php $_SESSION['email']; ?>"><br><br>
             <label > Responsable : </label><br>
-            <input type="text" name="newresponsable" placeholder="Responsable" value="<?php echo $user['Responsable']; ?>"><br><br>
+            <input type="text" name="newresponsable" placeholder="Responsable" value="<?php $_SESSION['responsable']; ?>"><br><br>
             <label > adresse postale : </label><br>
-            <input type="text" name="newadresse" placeholder="adresse" value="<?php echo $user['adresse']; ?>"><br><br>
+            <input type="text" name="newadresse" placeholder="adresse" value="<?php $_SESSION['adresse']; ?>"><br><br>
             
-            <input type="submit" value="editer">
+            <input type="submit" value="editer"><br><br>
             
         </form>
         <button onClick="javascript:document.location.href='profil.php'">Retour</button>

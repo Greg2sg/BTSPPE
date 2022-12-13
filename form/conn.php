@@ -55,6 +55,9 @@ if(isset($_POST['envoyer'])) {
             $_SESSION['email'] = $userinfo['Mail'];
             $_SESSION['responsable'] = $userinfo['Responsable'];
             $_SESSION['poste'] = $userinfo['Poste'];
+            $_SESSION['adresse'] = $userinfo['adresse'];
+            $_SESSION['id_role'] = $userinfo['id_role'];
+
 
             header("Location: ../index.php?id=".$_SESSION['id']);
          }else{

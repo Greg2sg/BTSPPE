@@ -44,8 +44,6 @@ echo "
             <th>Hebergement</th> 
             <th>Autres</th> 
             <th>Modifier</th>
-
-            
             </tr>
             
     </thead>";

@@ -15,7 +15,11 @@ session_start();
 </head>
 <body>
     <header class="header">
-        <h1 class="logo">Logo</h1>
+    <div class="logo">
+    <a href="index.php">
+    <img src="/asset/logo.png" />
+    </a>
+    </div>
         <ul class="nav">
            <!-- Afficher lorsque l'on est connecter -->
             <?php if(isset($_SESSION['id'])): ?>

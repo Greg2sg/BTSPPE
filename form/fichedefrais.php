@@ -135,7 +135,7 @@ if(isset($_POST['Envoyer']))
     $etat = "Attente";
    
     //Insérer les données dans la base de données
-    $r = "INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `autres`,`description` ,`ID_User` ,`etat`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$autres','$description', '$id_user' $etat)";
+    $r = "INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `autres`,`description` ,`ID_User` ,`etat`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$autres','$description', '$id_user', '$etat')";
     var_dump($r);
     $req = $conn->prepare($r);
     $res = $req ->execute();

@@ -60,7 +60,8 @@ while($donnee = $req->fetch()){
                             <td>".$donnee['repas']." euro</td>
                             <td>".$donnee['hebergement']." euro</td> 
                             <td>".$donnee['autres']." euro</td>
-                            <td><a href='editfichefrais.php'>editer</a></td>
+                            <td>".$donnee['etat']."</td>
+                            <td><a href="editfichefrais.php?id=<?php echo $_SESSION['id'] ?>">editer</a></td>
                         </tr>
                         
                     </tbody>";

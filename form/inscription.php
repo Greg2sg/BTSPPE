@@ -36,17 +36,12 @@ body{
 }
 .shape:first-child{
     background: linear-gradient(
-        #1845ad,
-        #23a2f6
     );
     left: -80px;
     top: -80px;
 }
 .shape:last-child{
     background: linear-gradient(
-        to right,
-        #ff512f,
-        #f09819
     );
     right: -30px;
     bottom: -80px;
@@ -63,7 +58,7 @@ form{
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+    padding: 0px 35px;
 }
 form *{
     font-family: 'Poppins',sans-serif;

@@ -18,7 +18,7 @@ $userinfo = $_SESSION;
 <body>
     <header class="header">
     <div class="logo">
-    <a href="index.php">
+    <a href="/index.php">
     <img src="/asset/logo.png" />
     </a>
     </div>

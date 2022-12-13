@@ -43,6 +43,7 @@ echo "
             <th>Repas </th> 
             <th>Hebergement</th> 
             <th>Autres</th> 
+            <th>Modification</th> 
 
             
             </tr>
@@ -59,6 +60,7 @@ while($donnee = $req->fetch()){
                             <td>".$donnee['repas']." euro</td>
                             <td>".$donnee['hebergement']." euro</td>
                             <td>".$donnee['autres']." euro</td>
+                            <td><a href='editfichefrais.php'>Editer</a></td>
                             
                         </tr>
                         

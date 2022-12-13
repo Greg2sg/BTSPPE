@@ -5,14 +5,14 @@ include 'db.php';
 
 if(isset($_SESSION['id'])){ 
 
-    $req=$conn->prepare("SELECT * FROM fichefrais WHERE ID_fichefrais=? ");
+    $req=$conn->prepare("SELECT * FROM fichefrais WHERE ID_FicheFrais=? ");
     $req->execute(array($_SESSION['id']));
     $user = $req->fetch();
 
     if(isset($_POST['newdate']) AND !empty($_POST['newdate']) AND $_POST['newdate'] != $fichefrais['date'])
     {
         $newdate=htmlspecialchars($_POST['newdate']);
-        $insertdate = $conn->prepare("UPDATE fichefrais SET date=? WHERE ID_fichefrais=?");
+        $insertdate = $conn->prepare("UPDATE fichefrais SET date=? WHERE ID_FicheFrais=?");
         $insertdate->execute(array($newdate,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
@@ -20,7 +20,7 @@ if(isset($_SESSION['id'])){
     if(isset($_POST['newdescription']) AND !empty($_POST['newdescription']) AND $_POST['newdescription'] != $fichefrais['description'])
     {
         $newdescription=htmlspecialchars($_POST['newdescription']);
-        $insertdescription = $conn->prepare("UPDATE fichefrais SET description=? WHERE ID_fichefrais=?");
+        $insertdescription = $conn->prepare("UPDATE fichefrais SET description=? WHERE ID_FicheFrais=?");
         $insertdescription->execute(array($newdescription,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
@@ -28,7 +28,7 @@ if(isset($_SESSION['id'])){
     if(isset($_POST['newtransport']) AND !empty($_POST['newtransport']) AND $_POST['newtransport'] != $fichefrais['transport'])
     {
         $newtransport=htmlspecialchars($_POST['newtransport']) ;
-        $inserttransport = $conn->prepare("UPDATE fichefrais SET transport=? WHERE ID_fichefrais=?");
+        $inserttransport = $conn->prepare("UPDATE fichefrais SET transport=? WHERE ID_FicheFrais=?");
         $inserttransport->execute(array($newtransport,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
@@ -36,7 +36,7 @@ if(isset($_SESSION['id'])){
     if(isset($_POST['newrepas']) AND !empty($_POST['newrepas']) AND $_POST['newrepas'] != $fichefrais['repas'])
     {
         $newrepas=htmlspecialchars($_POST['newrepas']) ;
-        $insertrepas = $conn->prepare("UPDATE fichefrais SET repas=? WHERE ID_fichefrais=?");
+        $insertrepas = $conn->prepare("UPDATE fichefrais SET repas=? WHERE ID_FicheFrais=?");
         $insertrepas->execute(array($newrepas,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
@@ -44,7 +44,7 @@ if(isset($_SESSION['id'])){
     if(isset($_POST['newhebergement']) AND !empty($_POST['newhebergement']) AND $_POST['newhebergement'] != $fichefrais['hebergement'])
     {
         $newhebergement=htmlspecialchars($_POST['newhebergement']) ;
-        $inserthebergement = $conn->prepare("UPDATE fichefrais SET hebergement=? WHERE ID_fichefrais=?");
+        $inserthebergement = $conn->prepare("UPDATE fichefrais SET hebergement=? WHERE ID_FicheFrais=?");
         $inserthebergement->execute(array($newhebergement,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
@@ -52,7 +52,7 @@ if(isset($_SESSION['id'])){
     if(isset($_POST['newautres']) AND !empty($_POST['newautres']) AND $_POST['newautres'] != $fichefrais['autres'])
     {
         $newautres=htmlspecialchars($_POST['newautres']) ;
-        $insertautres = $conn->prepare("UPDATE fichefrais SET autres=? WHERE ID_fichefrais=?");
+        $insertautres = $conn->prepare("UPDATE fichefrais SET autres=? WHERE ID_FicheFrais=?");
         $insertautres->execute(array($newautres,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
@@ -60,7 +60,7 @@ if(isset($_SESSION['id'])){
     if(isset($_POST['newprix_total']) AND !empty($_POST['newprix_total']) AND $_POST['newprix_total'] != $fichefrais['prix_total'])
     {
         $newprix_total=htmlspecialchars($_POST['newprix_total']) ;
-        $insertprix_total = $conn->prepare("UPDATE fichefrais SET prix_total=? WHERE ID_fichefrais=?");
+        $insertprix_total = $conn->prepare("UPDATE fichefrais SET prix_total=? WHERE ID_FicheFrais=?");
         $insertprix_total->execute(array($newprix_total,$_SESSION['id']));
         header('Location:../form/note_de_frais.php');
     }
@@ -81,7 +81,7 @@ if(isset($_SESSION['id'])){
             <label >Date : </label><br>
             <input type="date" name="newdate" placeholder="date" value="<?php echo $fichefrais['date']; ?>"><br><br>
             <label >Description : </label><br>
-            <input type="text" name="newdescription" placeholder="description" value="<?php echo $fichefrais['descripton']; ?>"><br><br>
+            <input type="text" name="newdescription" placeholder="description" value="<?php echo $_SESSION['descripton']; ?>"><br><br>
             <label >Deplacement : </label><br>
             <input type="number" name="newtransport" placeholder="transport" value="<?php echo $fichefrais['transport']; ?>"><br><br>
             <label >Repas : </label><br>

@@ -17,7 +17,8 @@ $userinfo = $_SESSION;
 </head>
 <body>
     <header class="header">
-        <h1 class="logo">Logo</h1>
+        <a href="../index.php"><h1 class="logo">Logo</h1></a>
+        
         <ul class="nav">
             
            <!-- Afficher lorsque l'on est connecter -->
@@ -26,24 +27,24 @@ $userinfo = $_SESSION;
                     <li><a href="inscription.php">Inscription</a></li>
                 <?php } ?>
                 <?php if($userinfo['id_role'] == 2){?>
-                    <li><a href="form/validation.php">Validation</a></li>
+                    <li><a href="validation.php">Validation</a></li>
                 <?php } ?>
 
                 <?php if($userinfo['id_role'] == 1){?>
-                    <li><a href="form/fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
-                    <li><a href="form/note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">Note de frais</a></li>
+                    <li><a href="fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
+                    <li><a href="note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">Note de frais</a></li>
                 <?php } ?>
                 
 
-            <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
+            <li><a href="profil.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
             
             <!-- Afficher si l'on est pas connecter -->
             <?php }else{  ?>
              
-            <li><a href="form/conn.php">Connexion</a></li>
+            <li><a href="conn.php">Connexion</a></li>
 
             <?php }; ?>
-            <li><a href="form/propos.php">A propos</a></li>
+            <li><a href="propos.php">A propos</a></li>
         </ul>
     </header>
 

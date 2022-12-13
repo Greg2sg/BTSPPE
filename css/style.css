@@ -115,22 +115,18 @@ body{
   margin: 0px;
   padding: 0px;
   object-position: 50%;
-
 }
 
 div{
-  
-  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   
 }
 
-div2{
+.div2{
   height: 295px;
   width: 705px;
   display: flex;
   justify-content: flex-end;
-  
 }

@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 include "header.php";
 ?>
 <body>
-    <h1>Note de Frais de <?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></h1>
+    <h1>Selectionner un utilisateur pour afficher les fiches de frais</h1>
 <?php
 //Connexion à la base de donnée
 include "db.php";
@@ -37,34 +37,24 @@ echo "
     <table>
         <thead>
             <tr>
-            <th>date</th>  
-            <th>description</th> 
-            <th>Deplacement</th> 
-            <th>Repas </th> 
-            <th>Hebergement</th> 
-            <th>Autres</th> 
-
-            
+            <th>ID</th>     
+            <th>Prénom</th>
+            <th>Nom</th>  
             </tr>
-            
     </thead>";
 
 
 while($donnee = $req->fetch()){
             echo "  <tbody>
                         <tr>
-                            <td>".$donnee['date']."</td>
-                            <td>".$donnee['description']." </td>
-                            <td>".$donnee['transport']." euro</td>
-                            <td>".$donnee['repas']." euro</td>
-                            <td>".$donnee['hebergement']." euro</td>
-                            <td>".$donnee['autres']." euro</td>
-                            
+                            <td><a href="note_de_frais.php?id=<?php echo $_SESSION['id'] ?>"> ".$donnee['ID_User']." </a></td>
+                            <td><a href="note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">".$donnee['Prenom']."</td>
+                            <td><a href="note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">".$donnee['Nom']." </td>
                         </tr>
-                        
+                        <br/>
                     </tbody>";
 }
 ?>
-<button onClick="javascript:document.location.href='../index.php'">Retour</button>
+// <button onClick="javascript:document.location.href='../index.php'">Retour</button>
 </body>
 </html>

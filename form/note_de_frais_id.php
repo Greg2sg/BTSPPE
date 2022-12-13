@@ -40,6 +40,7 @@ echo "
             <th>ID</th>     
             <th>Prénom</th>
             <th>Nom</th>  
+            <th>Sélectionner</th>  
             </tr>
     </thead>";
 
@@ -47,9 +48,10 @@ echo "
 while($donnee = $req->fetch()){
             echo "  <tbody>
                         <tr>
-                            <td><a href="note_de_frais.php?id=<?php echo $_SESSION['id'] ?>"> ".$donnee['ID_User']." </a></td>
-                            <td><a href="note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">".$donnee['Prenom']."</td>
-                            <td><a href="note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">".$donnee['Nom']." </td>
+                            <td><a href="editfichefrais.php?id=<?php echo $_SESSION['id'] ?>"> ".$donnee['ID_User']." </a></td>
+                            <td><a href="editfichefrais.php?id=<?php echo $_SESSION['id'] ?>">".$donnee['Prenom']."</td>
+                            <td><a href="editfichefrais.php?id=<?php echo $_SESSION['id'] ?>">".$donnee['Nom']." </td>
+                            <td><a href="editfichefrais.php?id=<?php echo $_SESSION['id'] ?>">Selectionner</a></td>
                         </tr>
                         <br/>
                     </tbody>";

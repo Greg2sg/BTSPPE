@@ -26,7 +26,11 @@
       </div>
     </div>
   </div>
-  <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+  
+  <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:text-left items-center text-center">
+  <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+      <img class="object-cover object-center rounded" alt="hero" src="/asset/image.png">
+    </div>
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Descriptif de la réalisation professionnelle, y compris les productions réalisées et schémas explicatifs
       </h1>
       <p class="mb-8 leading-relaxed">L’industrie pharmaceutique est un secteur très lucratif dans lequel le mouvement de fusion acquisition est très fort. Les regroupements de laboratoires ces dernières années ont donné naissance à des entités gigantesques au sein desquelles le travail est longtemps resté organisé selon les anciennes structures.

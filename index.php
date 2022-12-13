@@ -17,7 +17,7 @@ $userinfo = $_SESSION;
 </head>
 <body>
     <header class="header">
-        <h1 class="logo">Logo</h1>
+        <a href="index.php"><h1 class="logo">Logo</h1></a>
         <ul class="nav">
             
            <!-- Afficher lorsque l'on est connecter -->

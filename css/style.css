@@ -118,13 +118,16 @@ body{
 }
 
 div{
+  border: 1px solid black;
+
   display: flex;
   align-items: center;
   justify-content: center;
   
 }
 
-.div2{
+div2{
+  border: 1px solid black;
   height: 295px;
   width: 705px;
   display: flex;

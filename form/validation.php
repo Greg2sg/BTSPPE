@@ -50,7 +50,7 @@ while($donnee = $req->fetch()){
                         <tr>
                             <td>".$donnee['Nom']."</td>
                             <td>".$donnee['Prenom']." </td>
-                            <td><a href='note_de_frais_valid.php?id=".$donnee['ID_User']."'>validation</a></td>
+                            <td><a href='note_de_frais_valid.php?id=".$donnee['ID_User']."'>voir</a></td>
                         </tr>
                         
                     </tbody>";

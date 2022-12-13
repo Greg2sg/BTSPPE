@@ -20,14 +20,12 @@
     }
 </style>
 <?php 
-//include "header.php";
-$req = $conn->prepare("SELECT * FROM user ");
-$req->execute();
-$user = $req->fetch();
+include "header.php";
+
 ?>
 
 <body>
-    <h1>Note de Frais de <?php echo $user['nom']; ?> <?php echo $user['prenom']; ?></h1>
+    <!-- <h1>Note de Frais de <?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></h1> -->
 <?php
 //Connexion à la base de donnée
 include "db.php";
@@ -48,7 +46,8 @@ echo "
             <th>Hebergement</th> 
             <th>Autres</th> 
             <th>Etat</th>
-            <th>Modifier</th>
+            <th>Validation</th>
+            <th></th>
 
             </tr>
             
@@ -65,12 +64,17 @@ while($donnee = $req->fetch()){
                             <td>".$donnee['hebergement']." euro</td> 
                             <td>".$donnee['autres']." euro</td>
                             <td>".$donnee['etat']."</td>
-                            <td><a href='editfichefrais.php'>editer</a></td>
+                            <td><select name='pets' id='pet-select'>
+                                 <option value=''>--Choisir le role--</option>
+                                 <option value='2'>valider</option>
+                                 <option value='3'>refuser</option>
+                                    </select></td>
+                            <td><input type='submit' name'envoyer'></input></td>
                         </tr>
                         
                     </tbody>";
 }
 ?>
-<button onClick="javascript:document.location.href='../index.php'">Retour</button>
+<button onClick="javascript:document.location.href='validation.php'">Retour</button>
 </body>
 </html>

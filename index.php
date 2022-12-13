@@ -28,9 +28,13 @@ $userinfo = $_SESSION;
                 <?php if($userinfo['id_role'] == 2){?>
                     <li><a href="form/validation.php">Validation</a></li>
                 <?php } ?>
+
+                <?php if($userinfo['id_role'] == 1){?>
+                    <li><a href="form/fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
+                    <li><a href="form/note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">Note de frais</a></li>
+                <?php } ?>
                 
-            <li><a href="form/fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
-            <li><a href="form/note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">Note de frais</a></li>
+
             <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
             
             <!-- Afficher si l'on est pas connecter -->

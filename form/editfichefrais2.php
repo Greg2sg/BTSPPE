@@ -19,11 +19,11 @@ if(isset($_SESSION['id'])){
         $insertdate->execute(array($newdate,$_SESSION['id']));
         header('Location:note_de_frais.php');
     }
-    if(isset($_POST['newdescription']) AND !empty($_POST['newdescription']) AND $_POST['newdescription'] != $fichefrais['newdescription'])
+    if(isset($_POST['newrepas']) AND !empty($_POST['newrepas']) AND $_POST['newrepas'] != $fichefrais['newrepas'])
     {
-        $newdescription=htmlspecialchars($_POST['newdescription']) ;
-        $insertdate = $conn->prepare("UPDATE fichefrais SET 'date'=? WHERE ID_FicheFrais = $id_ff");
-        $insertdate->execute(array($newdescription,$id_ff));
+        $newrepas=htmlspecialchars($_POST['newrepas']) ;
+        $insertrepas = $conn->prepare("UPDATE fichefrais SET repas=? WHERE ID_FicheFrais = $id_ff");
+        $insertrepas->execute(array($newrepas,$_SESSION['id']));
         header('Location:note_de_frais.php');
     }
 

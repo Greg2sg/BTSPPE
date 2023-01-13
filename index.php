@@ -35,7 +35,7 @@ $userinfo = $_SESSION;
                 <?php } ?>
                 
 
-            <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>"><?php ?></a></li>
+            <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>">Profil<?php ?></a></li>
             
             <!-- Afficher si l'on est pas connecter -->
             <?php }else{  ?>

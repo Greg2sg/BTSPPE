@@ -17,7 +17,7 @@ $userinfo = $_SESSION;
 </head>
 <body>
     <header class="header">
-        <h1 class="logo">Logo</h1>
+        <a href="index.php"><h1 class="logo">Logo</h1></a>
         <ul class="nav">
             
            <!-- Afficher lorsque l'on est connecter -->
@@ -35,7 +35,7 @@ $userinfo = $_SESSION;
                 <?php } ?>
                 
 
-            <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
+            <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>">Profil<?php ?></a></li>
             
             <!-- Afficher si l'on est pas connecter -->
             <?php }else{  ?>

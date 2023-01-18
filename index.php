@@ -47,13 +47,13 @@ $userinfo = $_SESSION;
         </ul>
     </header>
 
-    <div>
+    <!-- <div>
         <div2>
             <div3>
                 <h2>Galaxy Swiss Bourdin</h2>
             </div3>
         </div2>
-    </div>
+    </div> -->
 
 </body>
 </html>

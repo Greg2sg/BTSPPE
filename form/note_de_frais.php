@@ -30,7 +30,7 @@ include "db.php";
 
 //Récupérer les donnée de la table fiche frais
 $req = $conn->prepare("SELECT * FROM fichefrais WHERE ID_USER = :ID_user");
-$req->execute(array(':ID_user'=>$_SESSION['id']));
+$req->execute(array(':ID_user'=>$_GET['id']));
 
 //Mise en forme du tableau de note de frais
 echo "  
@@ -52,6 +52,15 @@ echo "
 
 
 while($donnee = $req->fetch()){
+    if($donnee['etat']==0){
+        $etat='Attente';
+        }
+        elseif($donnee['etat']==1){
+            $etat="validée";
+        }
+        else{
+            $etat="refusée";
+        }
             echo "  <tbody>
                         <tr>
                             <td>".$donnee['date']."</td>
@@ -60,11 +69,13 @@ while($donnee = $req->fetch()){
                             <td>".$donnee['repas']." euro</td>
                             <td>".$donnee['hebergement']." euro</td> 
                             <td>".$donnee['autres']." euro</td>
-                            <td>".$donnee['etat']."</td>
-                            <td><a href='editfichefrais2.php?id=".$donnee['ID_FicheFrais']."'>editer</a></td>
+                            <td>".$etat."</td>
+                            <td>";if(($donnee['etat']==0)OR ($donnee['etat']==2))echo "<a href='editfichefrais2.php?id=".$donnee['ID_FicheFrais']."'>editer</a></td>
                         </tr>
                         
                     </tbody>";
+                    
+
 }
 ?>
 <button onClick="javascript:document.location.href='../index.php'">Retour</button>

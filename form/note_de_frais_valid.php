@@ -28,7 +28,8 @@ include "header.php";
 
 ?>
 
-<section>
+
+<div>
     <!-- <h1>Note de Frais de <?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></h1> -->
 <?php
 //Connexion à la base de donnée
@@ -119,11 +120,13 @@ while($donnee = $req->fetch()){
 
 
 
-</section>
-    <footer>
+</div>
+
+    <div>
         
         <a href="validation.php">retour</a>
-    </footer>
 
+    </div>
+    
     
 </html>

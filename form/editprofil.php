@@ -66,27 +66,29 @@ if(isset($_SESSION['id'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editer</title>
+    <link rel="stylesheet" href="../css/editprofil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
     <body>
         <form method="POST" action="editprofil.php">
             <h2>Edition de mon profil</h2>
             <label >Nom : </label><br>
-            <input type="text" name="newnom" placeholder="nom" value="<?php $_SESSION['nom']; ?>"><br><br>
+            <input type="text" name="newnom" placeholder="Nom" value="<?php $_SESSION['nom']; ?>"><br><br>
             <label >Prenom : </label><br>
-            <input type="text" name="newprenom" placeholder="prenom" value="<?php $_SESSION['prenom']; ?>"><br><br>
+            <input type="text" name="newprenom" placeholder="Prenom" value="<?php $_SESSION['prenom']; ?>"><br><br>
             <label >Poste : </label><br>
             <input type="text" name="newposte" placeholder="Poste" value="<?php $_SESSION['poste']; ?>"><br><br>
             <label > Email : </label><br>
-            <input type="text" name="newemail" placeholder="email" value="<?php $_SESSION['email']; ?>"><br><br>
+            <input type="text" name="newemail" placeholder="Email" value="<?php $_SESSION['email']; ?>"><br><br>
             <label > Responsable : </label><br>
             <input type="text" name="newresponsable" placeholder="Responsable" value="<?php $_SESSION['responsable']; ?>"><br><br>
-            <label > adresse postale : </label><br>
-            <input type="text" name="newadresse" placeholder="adresse" value="<?php $_SESSION['adresse']; ?>"><br><br>
+            <label > Adresse postale : </label><br>
+            <input type="text" name="newadresse" placeholder="Adresse" value="<?php $_SESSION['adresse']; ?>"><br><br>
             
-            <input type="submit" value="editer"><br><br>
-            
+           
+            <input class="edit" type="submit" value="Editer">
+            <button onClick="javascript:document.location.href='profil.php'">Retour</button>
         </form>
-        <button onClick="javascript:document.location.href='profil.php'">Retour</button>
     </body>
 </html>
 <?php

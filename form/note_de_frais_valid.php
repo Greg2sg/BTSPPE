@@ -71,7 +71,6 @@ while($donnee = $req->fetch()){
                                     </select></td>
                             <td><input type='submit' name'envoyer'></input></td>
                         </tr>
-                        
                     </tbody>";
 }
 ?>

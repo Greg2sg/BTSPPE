@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/tableau.css">
     <title></title>
 </head>
 <style>
@@ -27,7 +28,7 @@ include "header.php";
 
 ?>
 
-<body>
+<section>
     <!-- <h1>Note de Frais de <?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></h1> -->
 <?php
 //Connexion à la base de donnée
@@ -116,7 +117,14 @@ while($donnee = $req->fetch()){
         } 
 
 ?>
-<button onClick="javascript:document.location.href='validation.php'">Retour</button>
 
-</body>
+
+
+</section>
+    <footer>
+        
+        <a href="validation.php">retour</a>
+    </footer>
+
+    
 </html>

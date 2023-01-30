@@ -111,7 +111,6 @@ while($donnee = $req->fetch()){
                                     <input type='hidden' name='id' value='".$_GET['id']."'> </input>  
                             <td><input type='submit' name='envoyer'></input></td></form>
                         </tr>
-                        
                     </tbody>";
 
         } 

@@ -177,3 +177,7 @@ margin-right: 10px;
 .buttons button:last-child{
 margin-left: 10px;
 }
+
+p{
+    color: rgb(0, 157, 255);
+}

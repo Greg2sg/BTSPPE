@@ -52,7 +52,7 @@ if(isset($_SESSION['id'])){
    <div class="wrapper">
      <div class="img-area">
        <div class="inner-area">
-         <img src="/asset/imageProfil.png" alt="">
+         <img src="../asset/imageProfil.png" alt="">
        </div>
      </div>
 

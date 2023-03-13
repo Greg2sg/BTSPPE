@@ -10,3 +10,5 @@ try{
 } catch(PDOException $e){
     die('Erreur: impossible de se connecter');
 }
+
+?>

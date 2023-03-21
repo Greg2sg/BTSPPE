@@ -14,7 +14,7 @@
   <div class="container">
     <div class="title">Inscription</div>
     <div class="content">
-      <form action="" method="POST">
+      <form action="inscription.php" method="POST">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Prenom</span>
@@ -42,9 +42,9 @@
           </div>
         </div>
         <div class="gender-details">
-          <input type="radio" name="role" id="dot-1" value="3">
-          <input type="radio" name="role" id="dot-2" value="2">
-          <input type="radio" name="role" id="dot-3" value="1">
+          <input type="radio" name="role" id="dot-1" value="3" required>
+          <input type="radio" name="role" id="dot-2" value="2" required>
+          <input type="radio" name="role" id="dot-3" value="1" required>
           <span class="gender-title">Role</span>
           <div class="category">
             <label for="dot-1">

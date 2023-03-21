@@ -145,7 +145,7 @@ select{
     </div>
     <form method="POST" action="inscription.php">
         <h3>Inscription</h3>
-
+        
         <label for="username">Prenom</label>
         <input type="text" name="prenom" id="prenom" >
         

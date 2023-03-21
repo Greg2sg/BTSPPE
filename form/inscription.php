@@ -18,27 +18,27 @@
         <div class="user-details">
           <div class="input-box">
             <span class="details">Prenom</span>
-            <input name="prenom" type="text" placeholder="Enter your name" required>
+            <input name="prenom" type="text" placeholder="Entrer votre Prénom" required>
           </div>
           <div class="input-box">
             <span class="details">Nom</span>
-            <input name="nom" type="text" placeholder="Enter your username" required>
+            <input name="nom" type="text" placeholder="Entrer votre Nom" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input name="email" type="text" placeholder="Enter your email" required>
+            <input name="email" type="text" placeholder="Entrer votre Email" required>
           </div>
           <div class="input-box">
             <span class="details">Adresse</span>
-            <input name="adresse" type="text" placeholder="Enter your number" required>
+            <input name="adresse" type="text" placeholder="Entrer votre Adresse" required>
           </div>
           <div class="input-box">
             <span class="details">Mot de passe</span>
-            <input name="password" type="text" placeholder="Enter your password" required>
+            <input name="password" type="text" placeholder="Entrer votre Mot de passe" required>
           </div>
           <div class="input-box">
             <span class="details">Responsable</span>
-            <input name="responsable" type="text" placeholder="Confirm your password" required>
+            <input name="responsable" type="text" placeholder="Entrer le Responsable" required>
           </div>
         </div>
         <div class="gender-details">
@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="button">
-          <input type="submit" value="Register" name="envoyer">
+          <input type="submit" value="Inscription" name="envoyer">
         </div>
 
         <div class="button">

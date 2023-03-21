@@ -26,7 +26,7 @@ $userinfo = $_SESSION;
                     <li><a href="form/inscription.php">Inscription</a></li>
                 <?php } ?>
                 <?php if($userinfo['id_role'] == 2){?>
-                    <li><a href="form/validation.php">Validation</a></li>
+                    <li><a href="form/validation2.php">Validation</a></li>
                 <?php } ?>
 
                 <?php if($userinfo['id_role'] == 1){?>

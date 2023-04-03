@@ -91,5 +91,78 @@ echo"
 
 </div>";}
 ?>
+
+
+
+
+</body>
+
+
+<?php
+
+
+//Connexion à la base de donnée
+include "db.php";
+
+//Récupérer les donnée de la table fiche frais
+$req = $conn->prepare("SELECT SUM(transport) AS total_deplacement, SUM(repas) AS total_repas, SUM(hebergement) AS total_hebergement, SUM(autres) AS total_autres, etat FROM fichefrais WHERE ID_USER = :ID_user GROUP BY etat");
+$req->execute(array(':ID_user'=>$_GET['id']));
+
+//Mise en forme du tableau de note de frais
+echo "
+    <thead>
+        <tr>
+            <th>Deplacement totaux</th>
+            <th>Repas totaux</th>
+            <th>Hebergemnt totaux</th>
+            <th>Autres totaux</th>
+            <th>Etats</th>
+        </tr>
+    </thead>
+    <tbody>";
+
+
+while($donnees = $req->fetch()) {
+    $total_deplacement = $donnees['total_deplacement'];
+    $total_repas = $donnees['total_repas'];
+    $total_hebergement = $donnees['total_hebergement'];
+    $total_autres = $donnees['total_autres'];
+    $etat = $donnees['etat'];
+
+    echo "
+        <tr>
+            <td>".$total_deplacement."</td>
+            <td>".$total_repas."</td>
+            <td>".$total_hebergement."</td>
+            <td>".$total_autres."</td>
+            <td>";
+    
+    
+    switch($etat) {
+        case 0:
+            echo "Attente";
+            break;
+        case 1:
+            echo "Validée";
+            break;
+        case 2:
+            echo "Refusée";
+            break;
+        default:
+            echo "Inconnu";
+            break;
+    }
+
+    echo "</td>
+        </tr>";
+}
+
+echo "
+    </tbody>
+</div>";
+?>
+
 </html>
+
+
     

@@ -73,17 +73,17 @@ if(isset($_SESSION['id'])){
         <form method="POST" action="editprofil.php">
             <h2>Edition de mon profil</h2>
             <label >Nom : </label><br>
-            <input type="text" name="newnom" placeholder="Nom" value="<?php $_SESSION['nom']; ?>"><br><br>
+            <input type="text" name="newnom" placeholder="Nom" value="<?php echo $_SESSION['nom']; ?>"><br><br>
             <label >Prenom : </label><br>
-            <input type="text" name="newprenom" placeholder="Prenom" value="<?php $_SESSION['prenom']; ?>"><br><br>
+            <input type="text" name="newprenom" placeholder="Prenom" value="<?php echo $_SESSION['prenom']; ?>"><br><br>
             <label >Poste : </label><br>
-            <input type="text" name="newposte" placeholder="Poste" value="<?php $_SESSION['poste']; ?>"><br><br>
+            <input type="text" name="newposte" placeholder="Poste" value="<?php echo $_SESSION['poste']; ?>"><br><br>
             <label > Email : </label><br>
-            <input type="text" name="newemail" placeholder="Email" value="<?php $_SESSION['email']; ?>"><br><br>
+            <input type="text" name="newemail" placeholder="Email" value="<?php echo $_SESSION['email']; ?>"><br><br>
             <label > Responsable : </label><br>
-            <input type="text" name="newresponsable" placeholder="Responsable" value="<?php $_SESSION['responsable']; ?>"><br><br>
+            <input type="text" name="newresponsable" placeholder="Responsable" value="<?php echo $_SESSION['responsable']; ?>"><br><br>
             <label > Adresse postale : </label><br>
-            <input type="text" name="newadresse" placeholder="Adresse" value="<?php $_SESSION['adresse']; ?>"><br><br>
+            <input type="text" name="newadresse" placeholder="Adresse" value="<?php echo $_SESSION['adresse']; ?>"><br><br>
             
            
             <input class="edit" type="submit" value="Editer">

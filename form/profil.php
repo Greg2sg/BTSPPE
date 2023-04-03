@@ -67,6 +67,22 @@ if(isset($_SESSION['id'])){
      <p>Adresse postale : <?php echo $user['adresse']; ?></p>
      <br>
 
+     <p>Role : <?php
+      if($user['id_role']==1){
+        $user='Visiteur';
+        }
+        elseif($user['id_role']==2){
+            $user="Comptable";
+        }
+        elseif($user['id_role']==3){
+            $user="Administrateur";
+        }
+         echo $user;  
+         
+         ?></p>
+
+     <br>
+
      <div class="buttons">
        <button onClick="javascript:document.location.href='../index.php'">Page d'accueil</button>
        <button onClick="javascript:document.location.href='editprofil.php'">Editer mon profil</button>

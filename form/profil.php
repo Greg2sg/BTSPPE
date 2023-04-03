@@ -68,7 +68,7 @@ if(isset($_SESSION['id'])){
      <br>
 
      <div class="buttons">
-       <button onClick="javascript:document.location.href='../index.php'">Page d'acceuil</button>
+       <button onClick="javascript:document.location.href='../index.php'">Page d'accueil</button>
        <button onClick="javascript:document.location.href='editprofil.php'">Editer mon profil</button>
      </div>
 

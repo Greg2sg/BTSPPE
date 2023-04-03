@@ -87,7 +87,7 @@ if(isset($_SESSION['id'])){
             
            
             <input class="edit" type="submit" value="Editer">
-            <button onClick="javascript:document.location.href='profil.php'">Retour</button>
+            <a href="profil.php?id=<?php echo $_SESSION['id'] ?>">Profil<?php ?></a>
         </form>
     </body>
 </html>

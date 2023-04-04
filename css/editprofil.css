@@ -190,7 +190,7 @@ label{
     color: #23a2f6;
 }
 
-button {
+button , a {
     background-color: #23a2f6;
     border: none;
     color: white;

@@ -3,66 +3,64 @@ session_start();
 
 include 'db.php';
 
-if(isset($_SESSION['id'])){ 
+if(isset($_SESSION['id'])){
 
-    $req=$conn->prepare("SELECT * FROM fichefrais WHERE ID_FicheFrais=? ");
-    $req->execute(array($_SESSION['id']));
-    $user = $req->fetch();
+    $req=$conn->prepare("SELECT * FROM fichefrais WHERE ID_FicheFrais= :id");
 
-    if(isset($_POST['newdate']) AND !empty($_POST['newdate']) AND $_POST['newdate'] != $fichefrais['date'])
-    {
-        $newdate=htmlspecialchars($_POST['newdate']);
-        $insertdate = $conn->prepare("UPDATE fichefrais SET date=? WHERE ID_FicheFrais=?");
-        $insertdate->execute(array($newdate,$_SESSION['id']));
-        header('Location:../form/note_de_frais.php');
-    }
+    $req->bindValue('id', $_GET['id']);
+    $req->execute();
+    $fichefrais = $req->fetch();
+
+    $id_ff = $_GET['id'];
+
+    if(isset($_GET['newdate'])){
+
+        $newfichefrais['date']=$_GET['newdate'];
+        $newfichefrais['description']=$_GET['newdescription'];
+        $newfichefrais['transport']=$_GET['newdeplacement'];
+        $newfichefrais['repas']=$_GET['newrepas'];
+        $newfichefrais['hebergement']=$_GET['newhebergement'];
+        $newfichefrais['autres']=$_GET['newautres'];
     
-    if(isset($_POST['newdescription']) AND !empty($_POST['newdescription']) AND $_POST['newdescription'] != $fichefrais['description'])
-    {
-        $newdescription=htmlspecialchars($_POST['newdescription']);
-        $insertdescription = $conn->prepare("UPDATE fichefrais SET description=? WHERE ID_FicheFrais=?");
-        $insertdescription->execute(array($newdescription,$_SESSION['id']));
-        header('Location:../form/note_de_frais.php');
-    }
-
-    if(isset($_POST['newtransport']) AND !empty($_POST['newtransport']) AND $_POST['newtransport'] != $fichefrais['transport'])
-    {
-        $newtransport=htmlspecialchars($_POST['newtransport']) ;
-        $inserttransport = $conn->prepare("UPDATE fichefrais SET transport=? WHERE ID_FicheFrais=?");
-        $inserttransport->execute(array($newtransport,$_SESSION['id']));
-        header('Location:../form/note_de_frais.php');
-    }
-
-    if(isset($_POST['newrepas']) AND !empty($_POST['newrepas']) AND $_POST['newrepas'] != $fichefrais['repas'])
-    {
-        $newrepas=htmlspecialchars($_POST['newrepas']) ;
-        $insertrepas = $conn->prepare("UPDATE fichefrais SET repas=? WHERE ID_FicheFrais=?");
-        $insertrepas->execute(array($newrepas,$_SESSION['id']));
-        header('Location:../form/note_de_frais.php');
-    }
-
-    if(isset($_POST['newhebergement']) AND !empty($_POST['newhebergement']) AND $_POST['newhebergement'] != $fichefrais['hebergement'])
-    {
-        $newhebergement=htmlspecialchars($_POST['newhebergement']) ;
-        $inserthebergement = $conn->prepare("UPDATE fichefrais SET hebergement=? WHERE ID_FicheFrais=?");
-        $inserthebergement->execute(array($newhebergement,$_SESSION['id']));
-        header('Location:../form/note_de_frais.php');
-    }
-
-    if(isset($_POST['newautres']) AND !empty($_POST['newautres']) AND $_POST['newautres'] != $fichefrais['autres'])
-    {
-        $newautres=htmlspecialchars($_POST['newautres']) ;
-        $insertautres = $conn->prepare("UPDATE fichefrais SET autres=? WHERE ID_FicheFrais=?");
-        $insertautres->execute(array($newautres,$_SESSION['id']));
-        header('Location:../form/note_de_frais.php');
-    }
+        $update = "UPDATE fichefrais SET ";
+        if (!empty($newfichefrais['date'])) 
+                    {
+                        $update= $update."date='".$newfichefrais['date']."',";
+                    }       
+        if (!empty( $newfichefrais['description'])) 
+                    {
+                        $update= $update."description='". $newfichefrais['description']."',";
+                    }
+        if (!empty($newfichefrais['transport'])) 
+                    {
+                        $update= $update."transport='".$newfichefrais['transport']."',";
+                    }
+        if (!empty($newfichefrais['repas'])) 
+                    {
+                        $update= $update."repas='".$newfichefrais['repas']."',";
+                    }
+        if (!empty($newfichefrais['hebergement'])) 
+                    {
+                        $update= $update."hebergement='".$newfichefrais['hebergement']."',";
+                    }
+        if (!empty($newfichefrais['autres'])) 
+                    {
+                        $update= $update."autres='".$newfichefrais['autres']."',";
+                    } 
     
-    if(isset($_POST['newprix_total']) AND !empty($_POST['newprix_total']) AND $_POST['newprix_total'] != $fichefrais['prix_total'])
-    {
-        $newprix_total=htmlspecialchars($_POST['newprix_total']) ;
-        $insertprix_total = $conn->prepare("UPDATE fichefrais SET prix_total=? WHERE ID_FicheFrais=?");
-        $insertprix_total->execute(array($newprix_total,$_SESSION['id']));
-        header('Location:../form/note_de_frais.php');
+    
+        $update=substr($update, 0,-1)." WHERE fichefrais.ID_FicheFrais=$id_ff";
+        
+    
+    
+                if ($conn->exec($update)) 
+                {
+                    echo "<p style='color:green;'>Modifiée avec succés</p>";
+                }
+                else
+                {
+                    echo "impossible d'inserer";
+                }         
     }
 
 ?>
@@ -73,32 +71,43 @@ if(isset($_SESSION['id'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editer fiche frais</title>
+    <link rel="stylesheet" href="../css/editprofil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Editer</title>
 </head>
     <body>
-        <form method="POST" action="editfichefrais.php">
-            <h2>Edition de ma fiche de frais</h2>
+        <form method="GET" action="editfichefrais.php">
+            <h2>Edition de mon profil</h2>
             <label >Date : </label><br>
-            <input type="date" name="newdate" placeholder="date" value="<?php echo $fichefrais['date']; ?>"><br><br>
+            <input type="date" name="newdate" placeholder="Date" value="<?php echo $fichefrais['date']; ?>"><br><br>
             <label >Description : </label><br>
-            <input type="text" name="newdescription" placeholder="description" value="<?php echo $_SESSION['descripton']; ?>"><br><br>
+            <input type="text" name="newdescription" placeholder="Description" value="<?php echo $fichefrais['description']; ?>"><br><br>
             <label >Deplacement : </label><br>
-            <input type="number" name="newtransport" placeholder="transport" value="<?php echo $fichefrais['transport']; ?>"><br><br>
-            <label >Repas : </label><br>
-            <input type="number" name="newrepas" placeholder="repas" value="<?php echo $fichefrais['repas']; ?>"><br><br>
-            <label >Hebergement : </label><br>
-            <input type="number" name="newhebergement" placeholder="hebergement" value="<?php echo $fichefrais['hebergement']; ?>"><br><br>
-            <label >Autres : </label><br>
-            <input type="number" name="newautres" placeholder="autres" value="<?php echo $fichefrais['autres']; ?>"><br><br>
-            <input type="submit" value="editer">
+            <input type="number" name="newdeplacement" placeholder="Deplacement" value="<?php echo $fichefrais['hebergement']; ?>"><br><br>
+            <label > Repas : </label><br>
+            <input type="number" name="newrepas" placeholder="Repas" value="<?php echo $fichefrais['repas']; ?>"><br><br>
+            <label > Hebergement : </label><br>
+            <input type="number" name="newhebergement" placeholder="Hebergement" value="<?php echo $fichefrais['hebergement']; ?>"><br><br>
+            <label > Autres : </label><br>
+            <input type="text" name="newautres" placeholder="autres" value="<?php echo $fichefrais['autres']; ?>"><br><br>
+            
+            <input class="edit" type="submit" value="editer">
+            <a href="note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">Retour</a>
+            <input type="hidden" name="id" value="<?php echo $id_ff; ?>">
+            
         </form>
+        
+        
     </body>
 </html>
 <?php
 
+
 }
 else{
-    header('Location:note_de_frais.php');
+    header('Location:conn.php');
 }
 
+
 ?>
+

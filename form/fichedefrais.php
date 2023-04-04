@@ -2,8 +2,6 @@
 
 session_start();
 
-echo($_SESSION['id']);
-
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +17,6 @@ echo($_SESSION['id']);
 
    </style>
    <body>
-
     <div class="container">
       <img src="/asset/logo.png"></img>
         <div class="text">Bienvenue chez GSB
@@ -131,12 +128,11 @@ if(isset($_POST['Envoyer']))
     $repas = $_POST['repas'];
     $transport = $_POST['transport'];
     $autres = $_POST['autres'];
-    $id_user = intval($_SESSION['id']);
+    $id_user = ($_SESSION['id']);
 
    
     //Insérer les données dans la base de données
-    $r = "INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `autres`,`description` ,`ID_User` ,`etat`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$autres','$description', '$id_user', '$etat')";
-    var_dump($r);
+    $r = "INSERT INTO `fichefrais`( `nom`, `prenom`, `poste`, `mois`, `date`, `hebergement`, `repas`, `transport`, `autres`,`description` ,`ID_User`) VALUES ('$nom','$prenom','$poste','$mois','$date','$hebergement','$repas','$transport','$autres','$description', '$id_user' )";
     $req = $conn->prepare($r);
     $res = $req ->execute();
    //  header("location:index.php");

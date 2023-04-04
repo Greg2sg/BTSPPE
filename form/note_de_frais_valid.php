@@ -8,9 +8,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/tableau.css">
+    <link rel="stylesheet" href="../css/styleNoteDeFrais.css">
     <title></title>
 </head>
+
 <style>
     table,td,th, tr{
         border: 1px solid;
@@ -25,12 +26,11 @@
 
 <?php 
 include "header.php";
-
 ?>
 
 
-<div>
-    <!-- <h1>Note de Frais de <?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></h1> -->
+
+    <h2>Note de Frais de <?php echo $_SESSION['nom']; ?> <?php echo $_SESSION['prenom']; ?></h2> 
 <?php
 //Connexion à la base de donnée
 include "db.php";
@@ -66,22 +66,21 @@ $req->execute(array(':ID_user'=>$_GET['id']));
 
 //Mise en forme du tableau de note de frais
 echo "  
-    <table>
-        <thead>
-            <tr>
-            <th>date</th>  
-            <th>description</th> 
-            <th>Deplacement</th> 
-            <th>Repas </th> 
-            <th>Hebergement</th> 
-            <th>Autres</th> 
-            <th>Etat</th>
-            
-            <th></th>
 
-            </tr>
-            
-    </thead>";
+<div class='table-wrapper'>
+    <table class='fl-table'>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Deplacement</th>
+            <th>Repas</th>
+            <th>Hebergement</th>
+            <th>Autres</th>
+            <th>Etat</th>
+            <th></th>
+        </tr>
+        </thead>";
 
 
 while($donnee = $req->fetch()){
@@ -112,7 +111,9 @@ while($donnee = $req->fetch()){
                                     <input type='hidden' name='id' value='".$_GET['id']."'> </input>  
                             <td><input type='submit' name='envoyer'></input></td></form>
                         </tr>
-                    </tbody>";
+                    </tbody>
+                    
+                    </div>";
 
         } 
 
@@ -120,13 +121,7 @@ while($donnee = $req->fetch()){
 
 
 
-</div>
 
-    <div>
-        
-        <a href="validation.php">retour</a>
-
-    </div>
     
     
 </html>

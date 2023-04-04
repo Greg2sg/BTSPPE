@@ -1,187 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>Inscription</title>
- 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
-    <style media="screen">
-      *,
-*:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-body{
-    background-color: #080710;
-}
-.background{
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-    position: fixed;
-}
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
-.shape:first-child{
-    background: linear-gradient(
-    );
-    left: -80px;
-    top: -80px;
-}
-.shape:last-child{
-    background: linear-gradient(
-    );
-    right: -30px;
-    bottom: -80px;
-}
-form{
-    height: 950px;
-    width: 400px;
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 0px 35px;
-}
-form *{
-    font-family: 'Poppins',sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-}
-form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-}
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="../css/styleInscription.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 
-label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-}
-input{
-    display: block;
-    height: 50px;
-    width: 100%;
-    background-color: rgba(255,255,255,0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-}
-::placeholder{
-    color: #e5e5e5;
-}
-button{
-    margin-top: 50px;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.social{
-  margin-top: 30px;
-  display: flex;
-}
-.social div{
-  background: red;
-  width: 150px;
-  border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(255,255,255,0.27);
-  color: #eaf0fb;
-  text-align: center;
-}
-.social div:hover{
-  background-color: rgba(255,255,255,0.47);
-}
-.social .fb{
-  margin-left: 25px;
-}
-.social i{
-  margin-right: 4px;
-}
+<body >
 
-select{
-    font-size: .9rem;
-    padding: 2px 5px;
-    background-color: rgba(255,255,255,0.13);
-}
-
-
-    </style>
-</head>
-<body>
     
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+  <div class="container">
+    <div class="title">Inscription</div>
+    <div class="content">
+      <form action="inscription.php" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Prenom</span>
+            <input name="prenom" type="text" placeholder="Entrer votre Prénom" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Nom</span>
+            <input name="nom" type="text" placeholder="Entrer votre Nom" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input name="email" type="text" placeholder="Entrer votre Email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Adresse</span>
+            <input name="adresse" type="text" placeholder="Entrer votre Adresse" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Mot de passe</span>
+            <input name="password" type="text" placeholder="Entrer votre Mot de passe" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Responsable</span>
+            <input name="responsable" type="text" placeholder="Entrer le Responsable" required>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="role" id="dot-1" value="3" required>
+          <input type="radio" name="role" id="dot-2" value="2" required>
+          <input type="radio" name="role" id="dot-3" value="1" required>
+          <span class="gender-title">Role</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Administrateur</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Comptable</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Salarier</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Inscription" name="envoyer">
+        </div>
+
+        <div class="button">
+            <input type="submit" value="Retour" onClick="javascript:document.location.href='../index.php'">
+        </div>
+      </form>
     </div>
-    <form method="POST" action="inscription.php">
-        <h3>Inscription</h3>
+  </div>
 
-        <label for="username">Prenom</label>
-        <input type="text" name="prenom" id="prenom" >
-        
-        <label for="username">Nom</label>
-        <input type="text" name="nom"  id="nom" required>
+</body>
+</html>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
 
-        <label for="poste">Poste</label>
-        <input type="text" name="poste" id="poste" required>
-        
-        <label for="adresse">Adresse postale</label>
-        <input type="text" name="adresse" id="adresse" >
 
-        <label for="responsable">Responsable</label>
-        <input type="text" name="responsable" id="responsable" required>
 
-        <label for="role">Role</label>
-        <input type="number" name="role" id="role" required>
 
-        <!-- <label for="pet-select">Choisir un role:</label>
 
-        <select name="pets" id="pet-select">
-            <option value="">--Choisir le role--</option>
-            <option value="1">Visiteur</option>
-            <option value="2">Comptable</option>
-            <option value="3">Admin</option>
-            
-        </select> -->
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
 
-        <button name="envoyer">S'inscrire</button>
-    </form>
 
     <?php 
 

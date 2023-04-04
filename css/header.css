@@ -1,4 +1,3 @@
-
 .header, .nav {
   display: -webkit-flex;
   display: flex;
@@ -93,7 +92,7 @@ body {
 
 @media all and (min-width: 1030px) {
   .header {
-    width: 1030px;
+    /* width: 1030px; */
     min-width: 768px;
   }
 }

@@ -43,7 +43,7 @@ $userinfo = $_SESSION;
             <li><a href="form/conn.php">Connexion</a></li>
 
             <?php }; ?>
-            <li><a href="form/propos.php">A propos</a></li>
+            <li><a href="form/propos.php">À propos</a></li>
         </ul>
     </header>
 

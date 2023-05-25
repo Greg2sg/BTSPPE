@@ -43,7 +43,7 @@ $userinfo = $_SESSION;
             <li><a href="form/conn.php">Connexion</a></li>
 
             <?php }; ?>
-            <li><a href="form/propos.php">À propos</a></li>
+            <li><a href="/asset/Pour_vous_connecter_a_l.pdf">Identifiant de connexion</a></li>
         </ul>
     </header>
 

@@ -20,7 +20,7 @@ $userinfo = $_SESSION;
         <a href="index.php"><h1 class="logo">Logo</h1></a>
         <ul class="nav">
             
-           <!-- Afficher lorsque l'on est connecter -->
+           <!-- Afficher lorsque l'on est connecté -->
             <?php if(isset($_SESSION['id'])){
                 if($userinfo['id_role'] == 3){?>
                     <li><a href="form/inscription.php">Inscription</a></li>
@@ -33,17 +33,20 @@ $userinfo = $_SESSION;
                     <li><a href="form/fichedefrais.php?id=<?php echo $_SESSION['id'] ?>">Fiche de frais</a></li> 
                     <li><a href="form/note_de_frais.php?id=<?php echo $_SESSION['id'] ?>">Note de frais</a></li>
                 <?php } ?>
-                
 
-            <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>">Profil<?php ?></a></li>
+            <li><a href="form/profil.php?id=<?php echo $_SESSION['id'] ?>">Profil</a></li>
             
-            <!-- Afficher si l'on est pas connecter -->
+            <!-- Afficher si l'on n'est pas connecté -->
             <?php }else{  ?>
              
             <li><a href="form/conn.php">Connexion</a></li>
 
             <?php }; ?>
+            <?php if(isset($_SESSION['id'])) { ?>
+            <li><a href="/form/propos.php">À propos</a></li>
+            <?php } else { ?>
             <li><a href="/asset/Pour_vous_connecter_a_l.pdf">Identifiant de connexion</a></li>
+            <?php } ?>
         </ul>
     </header>
 
